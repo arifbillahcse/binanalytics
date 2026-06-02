@@ -49,45 +49,41 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.result-item strong[data-count]').forEach(el => countObserver.observe(el));
 
-// Hero dashboard animations — run after a short delay so user sees them start
+// Hero live panel — continuously ticking numbers
 window.addEventListener('load', () => {
-  // 1. KPI counter animation
-  document.querySelectorAll('.kpi-value[data-counter]').forEach((el, i) => {
-    setTimeout(() => {
-      const target = parseInt(el.dataset.counter, 10);
-      const duration = 1800;
-      const start = performance.now();
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(target * eased).toLocaleString();
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = target.toLocaleString();
-      }
-      requestAnimationFrame(tick);
-    }, 400 + i * 200);
-  });
+  const usersEl  = document.getElementById('liveUsers');
+  const eventsEl = document.getElementById('liveEvents');
+  const convEl   = document.getElementById('liveConv');
 
-  // 2. Channel bar fill animation
-  setTimeout(() => {
-    document.querySelectorAll('.ch-fill[data-w]').forEach((el, i) => {
-      setTimeout(() => {
-        el.style.width = el.dataset.w + '%';
-      }, i * 180);
-    });
-  }, 900);
+  if (!usersEl) return;
 
-  // 3. Live user ticker — randomly increment active users every 3s
-  const userEl = document.querySelector('.kpi-value[data-counter="4280"]');
-  if (userEl) {
-    setTimeout(() => {
-      setInterval(() => {
-        const cur = parseInt(userEl.textContent.replace(/,/g, ''), 10);
-        const delta = Math.floor(Math.random() * 7) - 2;
-        userEl.textContent = Math.max(4100, cur + delta).toLocaleString();
-      }, 2800);
-    }, 2500);
+  // tick helper
+  function animCount(el, target, duration, decimals) {
+    const start = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const v = target * (1 - Math.pow(1 - p, 3));
+      el.textContent = decimals ? v.toFixed(decimals) : Math.round(v).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+    })(performance.now());
   }
+
+  // Initial count-up on load
+  animCount(usersEl,  4280, 1800, 0);
+  animCount(eventsEl, 12.4, 1400, 1);
+  animCount(convEl,   1847, 2000, 0);
+
+  // Live ticking — random small changes every 2.5s
+  setInterval(() => {
+    const u = parseInt(usersEl.textContent.replace(/,/g,''), 10);
+    usersEl.textContent = Math.max(4000, u + Math.floor(Math.random()*9) - 3).toLocaleString();
+
+    const e = parseFloat(eventsEl.textContent);
+    eventsEl.textContent = Math.max(8, e + (Math.random()*1.2 - 0.5)).toFixed(1);
+
+    const c = parseInt(convEl.textContent.replace(/,/g,''), 10);
+    convEl.textContent = (c + Math.floor(Math.random()*3)).toLocaleString();
+  }, 2500);
 });
 
 // Contact form → WhatsApp
