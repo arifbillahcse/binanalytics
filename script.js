@@ -49,6 +49,21 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.result-item strong[data-count]').forEach(el => countObserver.observe(el));
 
+// Hero KPI counters (run on load)
+document.querySelectorAll('.kpi-value[data-counter]').forEach(el => {
+  const target = parseInt(el.dataset.counter, 10);
+  const duration = 1800;
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased).toLocaleString();
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toLocaleString();
+  }
+  requestAnimationFrame(tick);
+});
+
 // Contact form
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();

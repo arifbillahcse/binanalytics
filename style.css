@@ -225,6 +225,49 @@ p { color: var(--text); }
   align-items: center;
   justify-content: center;
 }
+/* Orbiting analytics tool icons */
+.orbit-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.orbit {
+  position: absolute;
+  border: 1px dashed rgba(255,255,255,0.12);
+  border-radius: 50%;
+  animation: spin linear infinite;
+}
+.orbit-1 { width: 430px; height: 430px; animation-duration: 26s; }
+.orbit-2 { width: 540px; height: 540px; animation-duration: 34s; animation-direction: reverse; }
+.orbit-3 { width: 430px; height: 430px; animation-duration: 30s; }
+.orbit-4 { width: 540px; height: 540px; animation-duration: 40s; animation-direction: reverse; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.orbit-icon {
+  position: absolute;
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 10px 26px rgba(10,31,68,0.35);
+  animation: spin-reverse linear infinite;
+}
+@keyframes spin-reverse { to { transform: rotate(-360deg); } }
+.orbit-1 .orbit-icon { top: -26px; left: 50%; margin-left: -26px; animation-duration: 26s; }
+.orbit-2 .orbit-icon { bottom: -26px; left: 50%; margin-left: -26px; animation-duration: 34s; animation-direction: reverse; }
+.orbit-3 .orbit-icon { top: 50%; left: -26px; margin-top: -26px; animation-duration: 30s; }
+.orbit-4 .orbit-icon { top: 50%; right: -26px; margin-top: -26px; animation-duration: 40s; animation-direction: reverse; }
+.orbit-icon.gtm { color: #246fdb; }
+.orbit-icon.meta { color: #0866ff; }
+.orbit-icon.gads { color: #ea4335; }
+
 .dashboard {
   position: relative;
   z-index: 2;
@@ -234,6 +277,7 @@ p { color: var(--text); }
   border-radius: 16px;
   box-shadow: 0 30px 70px rgba(10,31,68,0.45);
   overflow: hidden;
+  animation: float 6s ease-in-out infinite;
 }
 .dash-top {
   display: flex;
@@ -243,9 +287,40 @@ p { color: var(--text); }
   border-bottom: 1px solid var(--border);
   background: #f8fafc;
 }
-.dash-title { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
-.dash-title i { color: var(--primary); margin-right: 6px; }
-.dash-period { font-size: 0.72rem; color: var(--text-light); font-weight: 500; }
+.dash-title { font-size: 0.85rem; font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 7px; }
+.ga-logo { display: inline-flex; }
+.dash-realtime {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #16a34a;
+}
+.rt-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  position: relative;
+}
+.rt-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #16a34a;
+  animation: ripple 1.8s ease-out infinite;
+}
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+.chart-cap { display: block; font-size: 0.68rem; color: var(--text-light); font-weight: 500; margin-bottom: 6px; }
+.pulse-dot { animation: dotIn 0.4s ease forwards 2.4s, dotPulse 2s ease-in-out infinite 2.8s; }
+@keyframes dotPulse {
+  0%, 100% { r: 4.5; }
+  50% { r: 6.5; }
+}
 
 .dash-body { padding: 22px; }
 .dash-kpis {
