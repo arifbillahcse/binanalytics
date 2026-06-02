@@ -56,34 +56,71 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-card card-1">
-          <i class="fa-solid fa-chart-line"></i>
-          <div>
-            <strong>+247%</strong>
-            <span>ROI Increase</span>
+        <div class="glow-orb"></div>
+
+        <!-- Main dashboard mockup -->
+        <div class="dashboard">
+          <div class="dash-top">
+            <div class="dash-dots"><span></span><span></span><span></span></div>
+            <span class="dash-title">Revenue Dashboard</span>
+            <span class="dash-live"><i class="fa-solid fa-circle"></i> Live</span>
+          </div>
+          <div class="dash-body">
+            <div class="dash-summary">
+              <div>
+                <span class="dash-label">Total Revenue</span>
+                <strong class="dash-value">$184,290</strong>
+              </div>
+              <span class="dash-trend"><i class="fa-solid fa-arrow-up"></i> 32.8%</span>
+            </div>
+
+            <!-- Line chart -->
+            <div class="dash-chart">
+              <svg viewBox="0 0 320 130" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#6366f1" stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+                  </linearGradient>
+                  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#6366f1"/>
+                    <stop offset="100%" stop-color="#3b82f6"/>
+                  </linearGradient>
+                </defs>
+                <path class="area" d="M0,100 C40,90 60,60 100,65 C140,70 160,30 200,38 C240,46 270,15 320,10 L320,130 L0,130 Z" fill="url(#areaGrad)"/>
+                <path class="line" d="M0,100 C40,90 60,60 100,65 C140,70 160,30 200,38 C240,46 270,15 320,10" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round"/>
+                <circle class="dot" cx="320" cy="10" r="5"/>
+              </svg>
+              <div class="dash-axis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+            </div>
+
+            <div class="dash-mini">
+              <div class="mini-stat">
+                <span class="mini-label">Conversions</span>
+                <strong>2,847</strong>
+                <span class="mini-up"><i class="fa-solid fa-arrow-up"></i> 18%</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-label">ROAS</span>
+                <strong>3.5x</strong>
+                <span class="mini-up"><i class="fa-solid fa-arrow-up"></i> 24%</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="hero-card card-2">
-          <i class="fa-brands fa-google"></i>
-          <div>
-            <strong>Google Ads</strong>
-            <span>Certified Partner</span>
-          </div>
+
+        <!-- Floating badges -->
+        <div class="float-badge fb-1">
+          <span class="fb-icon" style="--c:#10b981"><i class="fa-solid fa-arrow-trend-up"></i></span>
+          <div><strong>+247%</strong><span>ROI Growth</span></div>
         </div>
-        <div class="hero-card card-3">
-          <i class="fa-solid fa-arrow-trend-up"></i>
-          <div>
-            <strong>3.5x ROAS</strong>
-            <span>Average Return</span>
-          </div>
+        <div class="float-badge fb-2">
+          <span class="fb-icon" style="--c:#3b82f6"><i class="fa-brands fa-google"></i></span>
+          <div><strong>Certified</strong><span>Google Partner</span></div>
         </div>
-        <div class="hero-illustration">
-          <div class="chart-bar" style="--h:60%"><span>Jan</span></div>
-          <div class="chart-bar" style="--h:80%"><span>Feb</span></div>
-          <div class="chart-bar" style="--h:55%"><span>Mar</span></div>
-          <div class="chart-bar" style="--h:90%"><span>Apr</span></div>
-          <div class="chart-bar" style="--h:75%"><span>May</span></div>
-          <div class="chart-bar active" style="--h:100%"><span>Jun</span></div>
+        <div class="float-badge fb-3">
+          <span class="fb-icon" style="--c:#6366f1"><i class="fa-solid fa-users"></i></span>
+          <div><strong>12,480</strong><span>New Customers</span></div>
         </div>
       </div>
     </div>
