@@ -268,11 +268,14 @@ p { color: var(--text); }
 .orbit-4 .orbit-icon { top: 50%; right: -26px; margin-top: -26px; animation-duration: 40s; animation-direction: reverse; }
 .orbit-5 .orbit-icon { top: -26px; right: 80px; animation-duration: 22s; }
 .orbit-6 .orbit-icon { bottom: -26px; left: 80px; animation-duration: 36s; animation-direction: reverse; }
+.orbit-7 { width: 620px; height: 620px; animation-duration: 28s; }
+.orbit-7 .orbit-icon { top: 50%; right: -26px; margin-top: -26px; animation-duration: 28s; }
 .orbit-icon.gtm { color: #246fdb; }
 .orbit-icon.meta { color: #0866ff; }
 .orbit-icon.gads { color: #ea4335; }
 .orbit-icon.wp { color: #21759b; }
 .orbit-icon.shopify { color: #96bf48; }
+.orbit-icon.fb { color: #1877f2; }
 
 .dashboard {
   position: relative;
@@ -370,7 +373,7 @@ p { color: var(--text); }
 .channel { display: grid; grid-template-columns: 110px 1fr 34px; align-items: center; gap: 10px; }
 .ch-info { font-size: 0.74rem; color: var(--text); font-weight: 500; display: flex; align-items: center; gap: 6px; }
 .ch-bar { height: 7px; background: #eef2f7; border-radius: 100px; overflow: hidden; }
-.ch-bar span { display: block; height: 100%; background: var(--gradient); border-radius: 100px; }
+.ch-fill { display: block; height: 100%; background: var(--gradient); border-radius: 100px; width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
 .ch-val { font-size: 0.72rem; font-weight: 700; color: var(--dark); text-align: right; }
 
 /* Accent stat card */
@@ -974,8 +977,7 @@ p { color: var(--text); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
-  .hero-visual { display: none; }
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
   .hero-btns { justify-content: center; }
   .hero-stats { justify-content: center; }
   .about-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -983,6 +985,16 @@ p { color: var(--text); }
   .contact-inner { grid-template-columns: 1fr; gap: 40px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
+  /* Mobile hero visual — hide orbits, show dashboard only */
+  .orbit-wrap { display: none; }
+  .hero-visual {
+    height: auto;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .dashboard { max-width: 100%; }
+  .accent-card { position: static; margin-top: 16px; display: inline-flex; }
 }
 
 @media (max-width: 640px) {

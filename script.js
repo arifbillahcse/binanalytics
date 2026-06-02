@@ -49,19 +49,45 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.result-item strong[data-count]').forEach(el => countObserver.observe(el));
 
-// Hero KPI counters (run on load)
-document.querySelectorAll('.kpi-value[data-counter]').forEach(el => {
-  const target = parseInt(el.dataset.counter, 10);
-  const duration = 1800;
-  const start = performance.now();
-  function tick(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(target * eased).toLocaleString();
-    if (progress < 1) requestAnimationFrame(tick);
-    else el.textContent = target.toLocaleString();
+// Hero dashboard animations — run after a short delay so user sees them start
+window.addEventListener('load', () => {
+  // 1. KPI counter animation
+  document.querySelectorAll('.kpi-value[data-counter]').forEach((el, i) => {
+    setTimeout(() => {
+      const target = parseInt(el.dataset.counter, 10);
+      const duration = 1800;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString();
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target.toLocaleString();
+      }
+      requestAnimationFrame(tick);
+    }, 400 + i * 200);
+  });
+
+  // 2. Channel bar fill animation
+  setTimeout(() => {
+    document.querySelectorAll('.ch-fill[data-w]').forEach((el, i) => {
+      setTimeout(() => {
+        el.style.width = el.dataset.w + '%';
+      }, i * 180);
+    });
+  }, 900);
+
+  // 3. Live user ticker — randomly increment active users every 3s
+  const userEl = document.querySelector('.kpi-value[data-counter="4280"]');
+  if (userEl) {
+    setTimeout(() => {
+      setInterval(() => {
+        const cur = parseInt(userEl.textContent.replace(/,/g, ''), 10);
+        const delta = Math.floor(Math.random() * 7) - 2;
+        userEl.textContent = Math.max(4100, cur + delta).toLocaleString();
+      }, 2800);
+    }, 2500);
   }
-  requestAnimationFrame(tick);
 });
 
 // Contact form → WhatsApp
