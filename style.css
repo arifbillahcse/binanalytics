@@ -694,7 +694,17 @@ p { color: var(--text); }
   padding: 36px 32px;
   position: relative;
   overflow: hidden;
+  opacity: 1;
   transition: transform 0.3s, background 0.3s, border-color 0.3s;
+  animation: stepIn 0.5s ease forwards;
+}
+.ps1 { animation-delay: 0.05s; }
+.ps2 { animation-delay: 0.15s; }
+.ps3 { animation-delay: 0.25s; }
+.ps4 { animation-delay: 0.35s; }
+@keyframes stepIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .pstep:hover {
   transform: translateY(-6px);
