@@ -56,71 +56,70 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="glow-orb"></div>
-
-        <!-- Main dashboard mockup -->
+        <!-- Professional dashboard panel -->
         <div class="dashboard">
           <div class="dash-top">
-            <div class="dash-dots"><span></span><span></span><span></span></div>
-            <span class="dash-title">Revenue Dashboard</span>
-            <span class="dash-live"><i class="fa-solid fa-circle"></i> Live</span>
+            <span class="dash-title"><i class="fa-solid fa-chart-column"></i> Performance Report</span>
+            <span class="dash-period">Last 6 Months</span>
           </div>
+
           <div class="dash-body">
-            <div class="dash-summary">
-              <div>
-                <span class="dash-label">Total Revenue</span>
-                <strong class="dash-value">$184,290</strong>
+            <div class="dash-kpis">
+              <div class="kpi">
+                <span class="kpi-label">Revenue</span>
+                <strong class="kpi-value">$184,290</strong>
+                <span class="kpi-up"><i class="fa-solid fa-arrow-up"></i> 32.8%</span>
               </div>
-              <span class="dash-trend"><i class="fa-solid fa-arrow-up"></i> 32.8%</span>
+              <div class="kpi">
+                <span class="kpi-label">ROAS</span>
+                <strong class="kpi-value">3.5x</strong>
+                <span class="kpi-up"><i class="fa-solid fa-arrow-up"></i> 24.1%</span>
+              </div>
             </div>
 
-            <!-- Line chart -->
+            <!-- Area chart -->
             <div class="dash-chart">
               <svg viewBox="0 0 320 130" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#6366f1" stop-opacity="0.45"/>
-                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
-                  </linearGradient>
-                  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#6366f1"/>
-                    <stop offset="100%" stop-color="#3b82f6"/>
+                    <stop offset="0%" stop-color="#2563eb" stop-opacity="0.22"/>
+                    <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
+                <line x1="0" y1="35" x2="320" y2="35" class="grid"/>
+                <line x1="0" y1="70" x2="320" y2="70" class="grid"/>
+                <line x1="0" y1="105" x2="320" y2="105" class="grid"/>
                 <path class="area" d="M0,100 C40,90 60,60 100,65 C140,70 160,30 200,38 C240,46 270,15 320,10 L320,130 L0,130 Z" fill="url(#areaGrad)"/>
-                <path class="line" d="M0,100 C40,90 60,60 100,65 C140,70 160,30 200,38 C240,46 270,15 320,10" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round"/>
-                <circle class="dot" cx="320" cy="10" r="5"/>
+                <path class="line" d="M0,100 C40,90 60,60 100,65 C140,70 160,30 200,38 C240,46 270,15 320,10" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+                <circle class="dot" cx="320" cy="10" r="4.5"/>
               </svg>
               <div class="dash-axis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
             </div>
 
-            <div class="dash-mini">
-              <div class="mini-stat">
-                <span class="mini-label">Conversions</span>
-                <strong>2,847</strong>
-                <span class="mini-up"><i class="fa-solid fa-arrow-up"></i> 18%</span>
+            <div class="dash-channels">
+              <div class="channel">
+                <span class="ch-info"><i class="fa-brands fa-facebook" style="color:#1877f2"></i> Facebook Ads</span>
+                <div class="ch-bar"><span style="width:82%"></span></div>
+                <span class="ch-val">82%</span>
               </div>
-              <div class="mini-stat">
-                <span class="mini-label">ROAS</span>
-                <strong>3.5x</strong>
-                <span class="mini-up"><i class="fa-solid fa-arrow-up"></i> 24%</span>
+              <div class="channel">
+                <span class="ch-info"><i class="fa-brands fa-google" style="color:#ea4335"></i> Google Ads</span>
+                <div class="ch-bar"><span style="width:68%"></span></div>
+                <span class="ch-val">68%</span>
+              </div>
+              <div class="channel">
+                <span class="ch-info"><i class="fa-solid fa-magnifying-glass" style="color:#0ea5e9"></i> Organic</span>
+                <div class="ch-bar"><span style="width:54%"></span></div>
+                <span class="ch-val">54%</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Floating badges -->
-        <div class="float-badge fb-1">
-          <span class="fb-icon" style="--c:#10b981"><i class="fa-solid fa-arrow-trend-up"></i></span>
-          <div><strong>+247%</strong><span>ROI Growth</span></div>
-        </div>
-        <div class="float-badge fb-2">
-          <span class="fb-icon" style="--c:#3b82f6"><i class="fa-brands fa-google"></i></span>
-          <div><strong>Certified</strong><span>Google Partner</span></div>
-        </div>
-        <div class="float-badge fb-3">
-          <span class="fb-icon" style="--c:#6366f1"><i class="fa-solid fa-users"></i></span>
-          <div><strong>12,480</strong><span>New Customers</span></div>
+        <!-- Accent stat card -->
+        <div class="accent-card">
+          <span class="ac-icon"><i class="fa-solid fa-arrow-trend-up"></i></span>
+          <div><strong>+247%</strong><span>Avg. ROI Growth</span></div>
         </div>
       </div>
     </div>
