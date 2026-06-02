@@ -64,15 +64,31 @@ document.querySelectorAll('.kpi-value[data-counter]').forEach(el => {
   requestAnimationFrame(tick);
 });
 
-// Contact form
+// Contact form → WhatsApp
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  const name    = this.querySelector('input[type="text"]').value.trim();
+  const email   = this.querySelector('input[type="email"]').value.trim();
+  const service = this.querySelector('select').value;
+  const message = this.querySelector('textarea').value.trim();
+
+  const text = [
+    `👋 Hello BinAnalytics!`,
+    ``,
+    `*Name:* ${name}`,
+    `*Email:* ${email}`,
+    service ? `*Service:* ${service}` : '',
+    message ? `*Message:* ${message}` : '',
+  ].filter(Boolean).join('\n');
+
+  window.open(`https://wa.me/8801854626927?text=${encodeURIComponent(text)}`, '_blank');
+
   const btn = this.querySelector('button[type="submit"]');
-  btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-  btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Opening WhatsApp...';
+  btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
   btn.disabled = true;
   setTimeout(() => {
-    btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+    btn.innerHTML = 'Send via WhatsApp <i class="fa-brands fa-whatsapp"></i>';
     btn.style.background = '';
     btn.disabled = false;
     this.reset();
