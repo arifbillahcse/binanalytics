@@ -21,7 +21,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.service-card, .step, .team-card, .testi-card, .about-text, .about-visual, .contact-info, .contact-form-wrap, .result-item, .cta-content').forEach(el => {
+document.querySelectorAll('.service-card, .step, .team-card, .testi-card, .about-text, .about-visual, .contact-info, .contact-form-wrap, .result-item, .cta-content, .value-card, .price-card, .feature-split, .faq-item').forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
@@ -87,7 +87,8 @@ window.addEventListener('load', () => {
 });
 
 // Contact form → WhatsApp
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+const contactForm = document.getElementById('contactForm');
+if (contactForm) contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
   const name    = this.querySelector('input[type="text"]').value.trim();
   const email   = this.querySelector('input[type="email"]').value.trim();
@@ -129,15 +130,12 @@ const skillObserver = new IntersectionObserver((entries) => {
 const alcCard = document.querySelector('.about-live-card');
 if (alcCard) skillObserver.observe(alcCard);
 
-// Smooth active nav highlight
-const sections = document.querySelectorAll('section[id]');
-const navA = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  navA.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--primary)' : '';
+// FAQ accordion (process page)
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
   });
 });
