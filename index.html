@@ -1,638 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BinAnalytics – Digital Marketing & Analytics Agency</title>
-  <meta name="description" content="BinAnalytics helps businesses grow with Web Analytics, Facebook Ads, Google Ads, and WordPress/Shopify website development." />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>ট্র্যাভেল ও ভিসা সার্ভিস | নির্ভরযোগ্য ভিসা ও টিকেট প্রসেসিং</title>
+  <meta name="description" content="বিশ্বস্ত ট্র্যাভেল ও ভিসা সার্ভিস — সৌদি আরব, দুবাই, কাতার, কানাডা, অস্ট্রেলিয়াসহ বিশ্বের যেকোনো দেশের ভিসা ও বিমান টিকেট দ্রুত ও নির্ভরযোগ্যভাবে প্রসেসিং করি।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container nav-inner">
-      <a href="#" class="logo">Bin<span>Analytics</span></a>
+      <a href="#home" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-paper-plane"></i></span>
+        <span class="logo-text">Travel<span>Visa</span></span>
+      </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home">হোম</a></li>
+        <li><a href="#services">সার্ভিস</a></li>
+        <li><a href="#countries">দেশসমূহ</a></li>
+        <li><a href="#promise">প্রতিশ্রুতি</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
       </ul>
-      <a href="#contact" class="btn btn-primary nav-cta">Get Started</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <a href="tel:+8801538372804" class="btn btn-primary nav-cta">
+        <i class="fa-solid fa-phone"></i> কল করুন
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
+  <header class="hero" id="home">
+    <!-- animated background -->
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <!-- floating animated travel icons -->
+    <div class="floaters" aria-hidden="true">
+      <i class="fa-solid fa-plane floater f1"></i>
+      <i class="fa-solid fa-passport floater f2"></i>
+      <i class="fa-solid fa-earth-asia floater f3"></i>
+      <i class="fa-solid fa-ticket floater f4"></i>
+      <i class="fa-solid fa-suitcase-rolling floater f5"></i>
+      <i class="fa-solid fa-location-dot floater f6"></i>
+    </div>
+
     <div class="container hero-inner">
-      <div class="hero-text">
-        <span class="badge"><i class="fa-solid fa-chart-simple"></i> Certified Web Analytics Experts</span>
-        <h1>Master Your Data with <span class="highlight">Google Analytics 4</span></h1>
-        <p>Web analytics is our specialty. We set up flawless GA4, Google Tag Manager & conversion tracking so you know exactly what drives every sale — and scale what works.</p>
-        <div class="hero-btns">
-          <a href="#contact" class="btn btn-primary">Get My Free GA4 Audit <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="#services" class="btn btn-outline">See How It Works</a>
+      <div class="hero-content">
+        <span class="badge">
+          <span class="pulse-dot"></span> বিশ্বস্ত ভিসা ও টিকেট পার্টনার
+        </span>
+        <h1>
+          আপনার স্বপ্নের গন্তব্যে <br />
+          <span class="gradient-text">নিরাপদ যাত্রা</span> শুরু হোক
+        </h1>
+        <p class="hero-sub">
+          সৌদি আরব, দুবাই, কাতার, কানাডা, অস্ট্রেলিয়াসহ বিশ্বের যেকোনো দেশের
+          <strong> ভিসা প্রসেসিং</strong> ও <strong>বিমান টিকেট</strong> — দ্রুত,
+          নির্ভরযোগ্য এবং গ্রাহক সন্তুষ্টির নিশ্চয়তায়।
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-headset"></i> এখনই যোগাযোগ করুন
+          </a>
+          <a href="#services" class="btn btn-ghost btn-lg">
+            আমাদের সার্ভিস <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
-        <div class="hero-trust">
-          <i class="fa-solid fa-circle-check"></i> GA4 &amp; GTM Setup
-          <i class="fa-solid fa-circle-check"></i> Accurate Conversion Tracking
-          <i class="fa-solid fa-circle-check"></i> 100% Transparent Reporting
-        </div>
+
         <div class="hero-stats">
-          <div class="stat"><strong>500+</strong><span>GA4 Setups Done</span></div>
-          <div class="stat-divider"></div>
-          <div class="stat"><strong>99.9%</strong><span>Tracking Accuracy</span></div>
-          <div class="stat-divider"></div>
-          <div class="stat"><strong>150+</strong><span>Brands Scaled</span></div>
+          <div class="stat">
+            <span class="stat-num" data-count="5000">0</span><span class="plus">+</span>
+            <small>সফল ভিসা</small>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="12">0</span><span class="plus">+</span>
+            <small>দেশ</small>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="99">0</span><span class="plus">%</span>
+            <small>গ্রাহক সন্তুষ্টি</small>
+          </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <!-- Orbiting analytics tool icons -->
-        <div class="orbit-wrap" aria-hidden="true">
-          <div class="orbit orbit-1">
-            <span class="orbit-icon ga"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#F9AB00" d="M22 21.48a2.4 2.4 0 0 1-2.62 2.5 2.49 2.49 0 0 1-2.16-2.48V3.02C17.22 1.4 18.4.42 19.6.5A2.42 2.42 0 0 1 22 3z"/><circle fill="#E37400" cx="4.4" cy="21.4" r="2.4"/><path fill="#E37400" d="M11.2 9.3a2.4 2.4 0 0 0-2.4 2.46v8.1c0 1.86 1.32 2.92 2.7 2.6a2.45 2.45 0 0 0 1.94-2.42v-8.4a2.4 2.4 0 0 0-2.24-2.34z"/></svg></span>
+
+      <!-- animated visual: spinning globe + orbiting plane -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="globe-wrap">
+          <div class="globe">
+            <i class="fa-solid fa-earth-americas"></i>
           </div>
-          <div class="orbit orbit-2">
-            <span class="orbit-icon gtm"><i class="fa-solid fa-tags"></i></span>
+          <div class="orbit">
+            <i class="fa-solid fa-plane orbit-plane"></i>
           </div>
-          <div class="orbit orbit-3">
-            <span class="orbit-icon meta"><i class="fa-brands fa-meta"></i></span>
-          </div>
-          <div class="orbit orbit-4">
-            <span class="orbit-icon gads"><i class="fa-brands fa-google"></i></span>
-          </div>
-          <div class="orbit orbit-5">
-            <span class="orbit-icon wp"><i class="fa-brands fa-wordpress"></i></span>
-          </div>
-          <div class="orbit orbit-6">
-            <span class="orbit-icon shopify"><i class="fa-brands fa-shopify"></i></span>
-          </div>
-          <div class="orbit orbit-7">
-            <span class="orbit-icon fb"><i class="fa-brands fa-facebook"></i></span>
-          </div>
+          <div class="ring ring-2"></div>
+          <div class="dashes"></div>
         </div>
-
-        <!-- Live Analytics Panel -->
-        <div class="live-panel">
-
-          <!-- Header -->
-          <div class="lp-head">
-            <div class="lp-brand">
-              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#F9AB00" d="M22 21.48a2.4 2.4 0 0 1-2.62 2.5 2.49 2.49 0 0 1-2.16-2.48V3.02C17.22 1.4 18.4.42 19.6.5A2.42 2.42 0 0 1 22 3z"/><circle fill="#E37400" cx="4.4" cy="21.4" r="2.4"/><path fill="#E37400" d="M11.2 9.3a2.4 2.4 0 0 0-2.4 2.46v8.1c0 1.86 1.32 2.92 2.7 2.6a2.45 2.45 0 0 0 1.94-2.42v-8.4a2.4 2.4 0 0 0-2.24-2.34z"/></svg>
-              Google Analytics 4
-            </div>
-            <div class="lp-live-badge"><span class="lp-dot"></span> Live</div>
+        <div class="visa-card glass">
+          <div class="vc-top">
+            <i class="fa-solid fa-passport"></i>
+            <span>VISA APPROVED</span>
+            <i class="fa-solid fa-circle-check vc-check"></i>
           </div>
-
-          <!-- Metric chips -->
-          <div class="lp-metrics">
-            <div class="lp-m">
-              <span class="lp-mlabel">Active Users</span>
-              <strong class="lp-mval" id="liveUsers">4,280</strong>
-              <em class="lp-mup">↑ 28.4%</em>
-            </div>
-            <div class="lp-m">
-              <span class="lp-mlabel">Events / sec</span>
-              <strong class="lp-mval" id="liveEvents">12.4</strong>
-              <em class="lp-mup">↑ 15%</em>
-            </div>
-            <div class="lp-m">
-              <span class="lp-mlabel">Conversions</span>
-              <strong class="lp-mval" id="liveConv">1,847</strong>
-              <em class="lp-mup">↑ 41.2%</em>
-            </div>
-          </div>
-
-          <!-- Donut + Live Feed -->
-          <div class="lp-main">
-
-            <!-- Animated Donut Chart -->
-            <div class="lp-donut-wrap">
-              <svg viewBox="0 0 110 110" class="lp-donut">
-                <defs>
-                  <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                </defs>
-                <!-- Outer rotating scan ring -->
-                <circle cx="55" cy="55" r="50" fill="none" stroke="rgba(37,99,235,0.08)" stroke-width="1.5" stroke-dasharray="4 5"/>
-                <circle cx="55" cy="55" r="50" fill="none" stroke="rgba(37,99,235,0.25)" stroke-width="1.5" stroke-dasharray="30 284">
-                  <animateTransform attributeName="transform" type="rotate" from="0 55 55" to="360 55 55" dur="4s" repeatCount="indefinite"/>
-                </circle>
-                <!-- Track -->
-                <circle cx="55" cy="55" r="38" fill="none" stroke="#eef2f7" stroke-width="9"/>
-                <!-- Organic segment -->
-                <circle cx="55" cy="55" r="38" fill="none" stroke="#F9AB00" stroke-width="9"
-                  stroke-dasharray="93 146" stroke-dashoffset="0" transform="rotate(-90 55 55)" filter="url(#glow)">
-                  <animate attributeName="stroke-dasharray" values="0 239;93 146;93 146;93 146" dur="3s" fill="freeze"/>
-                </circle>
-                <!-- Paid segment -->
-                <circle cx="55" cy="55" r="38" fill="none" stroke="#2563eb" stroke-width="9"
-                  stroke-dasharray="64 175" stroke-dashoffset="-93" transform="rotate(-90 55 55)" filter="url(#glow)">
-                  <animate attributeName="stroke-dasharray" values="0 239;64 175;64 175;64 175" dur="3.4s" fill="freeze"/>
-                </circle>
-                <!-- Social segment -->
-                <circle cx="55" cy="55" r="38" fill="none" stroke="#10b981" stroke-width="9"
-                  stroke-dasharray="48 191" stroke-dashoffset="-157" transform="rotate(-90 55 55)" filter="url(#glow)">
-                  <animate attributeName="stroke-dasharray" values="0 239;48 191;48 191;48 191" dur="3.8s" fill="freeze"/>
-                </circle>
-                <!-- Center text -->
-                <text x="55" y="50" text-anchor="middle" fill="#0a1f44" font-size="13" font-weight="800" font-family="Inter,sans-serif">99.9%</text>
-                <text x="55" y="63" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="Inter,sans-serif">Tracking</text>
-              </svg>
-              <div class="lp-legend">
-                <span class="lp-leg"><i style="background:#F9AB00"></i>Organic</span>
-                <span class="lp-leg"><i style="background:#2563eb"></i>Paid</span>
-                <span class="lp-leg"><i style="background:#10b981"></i>Social</span>
-              </div>
-            </div>
-
-            <!-- Live event feed -->
-            <div class="lp-feed">
-              <div class="lp-feed-label">Live Events</div>
-              <div class="lp-feed-viewport">
-                <div class="lp-feed-scroll">
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#2563eb"></span><span class="lpe-text">Page View <em>/pricing</em></span><span class="lpe-time">2s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#F9AB00"></span><span class="lpe-text">Add to Cart <em>/shop</em></span><span class="lpe-time">5s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#10b981"></span><span class="lpe-text">Conversion <em>/checkout</em></span><span class="lpe-time">8s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#2563eb"></span><span class="lpe-text">Page View <em>/about</em></span><span class="lpe-time">11s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#ea4335"></span><span class="lpe-text">Search <em>"ga4 setup"</em></span><span class="lpe-time">14s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#10b981"></span><span class="lpe-text">Conversion <em>/contact</em></span><span class="lpe-time">17s</span></div>
-                  <!-- duplicate for seamless loop -->
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#2563eb"></span><span class="lpe-text">Page View <em>/pricing</em></span><span class="lpe-time">2s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#F9AB00"></span><span class="lpe-text">Add to Cart <em>/shop</em></span><span class="lpe-time">5s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#10b981"></span><span class="lpe-text">Conversion <em>/checkout</em></span><span class="lpe-time">8s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#2563eb"></span><span class="lpe-text">Page View <em>/about</em></span><span class="lpe-time">11s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#ea4335"></span><span class="lpe-text">Search <em>"ga4 setup"</em></span><span class="lpe-time">14s</span></div>
-                  <div class="lp-event"><span class="lpe-dot" style="--ec:#10b981"></span><span class="lpe-text">Conversion <em>/contact</em></span><span class="lpe-time">17s</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Animated wave chart -->
-          <div class="lp-wave-wrap">
-            <div class="lp-wave-slide">
-              <svg viewBox="0 0 640 44" preserveAspectRatio="none" width="640" height="44">
-                <defs>
-                  <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#2563eb" stop-opacity="0.2"/>
-                    <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path fill="url(#waveGrad)" d="M0,28 C18,18 26,8 40,14 C54,20 62,34 80,28 C98,22 106,8 120,14 C134,20 142,34 160,28 C178,22 186,8 200,14 C214,20 222,34 240,28 C258,22 266,8 280,14 C294,20 302,34 320,28 C338,18 346,8 360,14 C374,20 382,34 400,28 C418,22 426,8 440,14 C454,20 462,34 480,28 C498,22 506,8 520,14 C534,20 542,34 560,28 C578,22 586,8 600,14 C614,20 622,34 640,28 L640,44 L0,44 Z"/>
-                <path fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" d="M0,28 C18,18 26,8 40,14 C54,20 62,34 80,28 C98,22 106,8 120,14 C134,20 142,34 160,28 C178,22 186,8 200,14 C214,20 222,34 240,28 C258,22 266,8 280,14 C294,20 302,34 320,28 C338,18 346,8 360,14 C374,20 382,34 400,28 C418,22 426,8 440,14 C454,20 462,34 480,28 C498,22 506,8 520,14 C534,20 542,34 560,28 C578,22 586,8 600,14 C614,20 622,34 640,28"/>
-              </svg>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Accent stat card -->
-        <div class="accent-card">
-          <span class="ac-icon"><i class="fa-solid fa-bullseye"></i></span>
-          <div><strong>99.9%</strong><span>Tracking Accuracy</span></div>
+          <div class="vc-line"></div>
+          <div class="vc-line short"></div>
+          <div class="vc-stamp">APPROVED</div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ===== TRUSTED BY ===== -->
-  <section class="trusted">
-    <div class="container">
-      <p class="trusted-label">Trusted Tools & Platforms We Master</p>
-      <div class="trusted-logos">
-        <div class="tlogo"><i class="fa-brands fa-google"></i> Google Analytics</div>
-        <div class="tlogo"><i class="fa-brands fa-facebook"></i> Meta Ads</div>
-        <div class="tlogo"><i class="fa-brands fa-google"></i> Google Ads</div>
-        <div class="tlogo"><i class="fa-brands fa-wordpress"></i> WordPress</div>
-        <div class="tlogo"><i class="fa-brands fa-shopify"></i> Shopify</div>
-        <div class="tlogo"><i class="fa-solid fa-tags"></i> Google Tag Manager</div>
-      </div>
+    <div class="scroll-hint">
+      <span></span> স্ক্রোল করুন
     </div>
-  </section>
+  </header>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <div class="trust-strip">
+    <div class="container trust-inner">
+      <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> ১০০% নির্ভরযোগ্য</div>
+      <div class="trust-item"><i class="fa-solid fa-bolt"></i> দ্রুত প্রসেসিং</div>
+      <div class="trust-item"><i class="fa-solid fa-hand-holding-dollar"></i> সাশ্রয়ী মূল্য</div>
+      <div class="trust-item"><i class="fa-solid fa-headset"></i> ২৪/৭ সাপোর্ট</div>
+    </div>
+  </div>
 
   <!-- ===== SERVICES ===== -->
-  <section class="services section" id="services">
+  <section class="section services" id="services">
     <div class="container">
       <div class="section-head">
-        <span class="badge">What We Offer</span>
-        <h2>Everything You Need to <span class="highlight">Outgrow Your Competition</span></h2>
-        <p>Four powerful services that work together to attract customers, convert clicks, and multiply your revenue.</p>
+        <span class="eyebrow">আমাদের সার্ভিস</span>
+        <h2>যে সেবাগুলো আমরা <span class="gradient-text">দিয়ে থাকি</span></h2>
+        <p>ভিসা থেকে টিকেট — আপনার সম্পূর্ণ ভ্রমণের দায়িত্ব আমাদের।</p>
       </div>
+
       <div class="services-grid">
-
-        <div class="service-card">
-          <div class="svc-icon-wrap">
-            <svg class="svc-blob" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="rgba(29,78,216,0.08)"/></svg>
-            <div class="svc-icon" style="--ic:#1d4ed8">
-              <i class="fa-solid fa-chart-pie"></i>
-            </div>
-            <svg class="svc-anim" viewBox="0 0 60 20"><polyline points="0,15 12,8 24,12 36,4 48,7 60,2" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"><animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.8s" begin="0s" fill="freeze" repeatCount="indefinite"/></polyline></svg>
-          </div>
-          <h3>Web Analytics</h3>
-          <p>Know exactly what's working and what's wasting money. We track every click and conversion so you can double down on profit — not guesswork.</p>
-          <ul class="service-list">
-            <li><i class="fa-solid fa-check"></i> GA4 & GTM Setup</li>
-            <li><i class="fa-solid fa-check"></i> Custom Event Tracking</li>
-            <li><i class="fa-solid fa-check"></i> Conversion Funnels</li>
-            <li><i class="fa-solid fa-check"></i> Monthly Reports</li>
+        <article class="service-card reveal">
+          <div class="sc-icon"><i class="fa-solid fa-passport"></i></div>
+          <h3>ভিসা প্রসেসিং</h3>
+          <p>টুরিস্ট, ভিজিট, ওয়ার্ক ও স্টুডেন্ট ভিসা — সঠিক ডকুমেন্টেশন ও দ্রুত প্রসেসিং নিশ্চিত করি।</p>
+          <ul class="sc-list">
+            <li><i class="fa-solid fa-check"></i> টুরিস্ট ও ভিজিট ভিসা</li>
+            <li><i class="fa-solid fa-check"></i> ওয়ার্ক পারমিট</li>
+            <li><i class="fa-solid fa-check"></i> ডকুমেন্ট সহায়তা</li>
           </ul>
-          <a href="#contact" class="service-link">Get Started Free <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+          <a href="#contact" class="sc-link">বিস্তারিত <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
 
-        <div class="service-card featured">
-          <div class="featured-badge">Most Popular</div>
-          <div class="svc-icon-wrap">
-            <svg class="svc-blob" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="rgba(24,119,242,0.08)"/></svg>
-            <div class="svc-icon" style="--ic:#1877f2">
-              <i class="fa-brands fa-facebook"></i>
-            </div>
-            <svg class="svc-anim" viewBox="0 0 60 20"><rect x="4" y="12" width="8" height="8" rx="2" fill="#1877f2" opacity="0.5"><animate attributeName="height" values="8;14;8" dur="1.2s" repeatCount="indefinite"/><animate attributeName="y" values="12;6;12" dur="1.2s" repeatCount="indefinite"/></rect><rect x="18" y="6" width="8" height="14" rx="2" fill="#1877f2" opacity="0.7"><animate attributeName="height" values="14;8;14" dur="1.4s" begin="0.2s" repeatCount="indefinite"/><animate attributeName="y" values="6;12;6" dur="1.4s" begin="0.2s" repeatCount="indefinite"/></rect><rect x="32" y="9" width="8" height="11" rx="2" fill="#1877f2"><animate attributeName="height" values="11;16;11" dur="1s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="y" values="9;4;9" dur="1s" begin="0.4s" repeatCount="indefinite"/></rect><rect x="46" y="4" width="8" height="16" rx="2" fill="#1877f2" opacity="0.8"><animate attributeName="height" values="16;10;16" dur="1.3s" begin="0.1s" repeatCount="indefinite"/><animate attributeName="y" values="4;10;4" dur="1.3s" begin="0.1s" repeatCount="indefinite"/></rect></svg>
-          </div>
-          <h3>Facebook Ads</h3>
-          <p>Reach buyers ready to purchase — not just scrollers. Our Meta campaigns turn cold audiences into paying customers with proven 3x+ returns.</p>
-          <ul class="service-list">
-            <li><i class="fa-solid fa-check"></i> Campaign Strategy</li>
-            <li><i class="fa-solid fa-check"></i> Audience Research</li>
-            <li><i class="fa-solid fa-check"></i> Meta Pixel & CAPI</li>
-            <li><i class="fa-solid fa-check"></i> A/B Testing</li>
+        <article class="service-card featured reveal">
+          <span class="popular">জনপ্রিয়</span>
+          <div class="sc-icon"><i class="fa-solid fa-ticket"></i></div>
+          <h3>টিকেট প্রসেসিং</h3>
+          <p>দেশি-বিদেশি সকল এয়ারলাইন্সের বিমান টিকেট — সবচেয়ে কম দামে কনফার্ম বুকিং।</p>
+          <ul class="sc-list">
+            <li><i class="fa-solid fa-check"></i> ইন্টারন্যাশনাল ফ্লাইট</li>
+            <li><i class="fa-solid fa-check"></i> সেরা দামের গ্যারান্টি</li>
+            <li><i class="fa-solid fa-check"></i> ইনস্ট্যান্ট কনফার্মেশন</li>
           </ul>
-          <a href="#contact" class="service-link">Get Started Free <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+          <a href="#contact" class="sc-link">বিস্তারিত <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
 
-        <div class="service-card">
-          <div class="svc-icon-wrap">
-            <svg class="svc-blob" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="rgba(234,67,53,0.08)"/></svg>
-            <div class="svc-icon" style="--ic:#ea4335">
-              <i class="fa-brands fa-google"></i>
-            </div>
-            <svg class="svc-anim" viewBox="0 0 60 20"><circle cx="10" cy="10" r="4" fill="#ea4335" opacity="0.3"><animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="30" cy="10" r="5" fill="#ea4335" opacity="0.5"><animate attributeName="r" values="5;8;5" dur="1.6s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;1;0.5" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle><circle cx="50" cy="10" r="3" fill="#ea4335" opacity="0.4"><animate attributeName="r" values="3;6;3" dur="1.8s" begin="0.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0.9;0.4" dur="1.8s" begin="0.2s" repeatCount="indefinite"/></circle></svg>
-          </div>
-          <h3>Google Ads</h3>
-          <p>Capture customers at the exact moment they're searching to buy. Certified experts manage every dollar to drive qualified leads on autopilot.</p>
-          <ul class="service-list">
-            <li><i class="fa-solid fa-check"></i> Search & Shopping Ads</li>
-            <li><i class="fa-solid fa-check"></i> Remarketing Campaigns</li>
-            <li><i class="fa-solid fa-check"></i> Conversion Tracking</li>
-            <li><i class="fa-solid fa-check"></i> Bid Optimization</li>
+        <article class="service-card reveal">
+          <div class="sc-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3>ট্র্যাভেল কনসালটেন্সি</h3>
+          <p>কোথায় যাবেন, কীভাবে যাবেন — অভিজ্ঞ পরামর্শে আপনার পুরো ভ্রমণ পরিকল্পনা সাজিয়ে দিই।</p>
+          <ul class="sc-list">
+            <li><i class="fa-solid fa-check"></i> ফ্রি পরামর্শ</li>
+            <li><i class="fa-solid fa-check"></i> হোটেল বুকিং</li>
+            <li><i class="fa-solid fa-check"></i> ভ্রমণ গাইডলাইন</li>
           </ul>
-          <a href="#contact" class="service-link">Get Started Free <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="service-card">
-          <div class="svc-icon-wrap">
-            <svg class="svc-blob" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="rgba(245,158,11,0.08)"/></svg>
-            <div class="svc-icon" style="--ic:#f59e0b">
-              <i class="fa-brands fa-wordpress"></i>
-            </div>
-            <svg class="svc-anim" viewBox="0 0 60 20"><rect x="2" y="2" width="56" height="16" rx="4" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="140" stroke-dashoffset="140"><animate attributeName="stroke-dashoffset" values="140;0;140" dur="3s" repeatCount="indefinite"/></rect><rect x="8" y="7" width="20" height="6" rx="2" fill="#f59e0b" opacity="0.3"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/></rect><rect x="34" y="7" width="18" height="6" rx="2" fill="#f59e0b" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" begin="0.5s" repeatCount="indefinite"/></rect></svg>
-          </div>
-          <h3>WordPress & Shopify</h3>
-          <p>A slow, ugly website kills sales. We build lightning-fast, stunning stores engineered to turn visitors into buyers — 24/7.</p>
-          <ul class="service-list">
-            <li><i class="fa-solid fa-check"></i> Custom Web Design</li>
-            <li><i class="fa-solid fa-check"></i> Shopify Store Setup</li>
-            <li><i class="fa-solid fa-check"></i> Landing Page Design</li>
-            <li><i class="fa-solid fa-check"></i> Speed Optimization</li>
-          </ul>
-          <a href="#contact" class="service-link">Get Started Free <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
+          <a href="#contact" class="sc-link">বিস্তারিত <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== RESULTS BANNER ===== -->
-  <section class="results">
-    <div class="container">
-      <div class="results-head">
-        <h2>Numbers That Speak Louder Than Promises</h2>
-        <p>Real results from real campaigns we've delivered for businesses just like yours.</p>
-      </div>
-      <div class="results-grid">
-        <div class="result-item">
-          <strong data-count="247">0</strong><span class="suffix">%</span>
-          <p>Average ROI increase across client campaigns</p>
-        </div>
-        <div class="result-item">
-          <strong data-count="2.5" data-decimal="1">0</strong><span class="suffix">M+</span>
-          <p>In ad spend profitably managed for clients</p>
-        </div>
-        <div class="result-item">
-          <strong data-count="3.5" data-decimal="1">0</strong><span class="suffix">x</span>
-          <p>Average return on ad spend (ROAS) delivered</p>
-        </div>
-        <div class="result-item">
-          <strong data-count="150">0</strong><span class="suffix">+</span>
-          <p>Brands scaled to their next level of growth</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section class="about section" id="about">
-    <div class="container about-inner">
-      <div class="about-visual">
-        <div class="about-img-wrap">
-          <div class="about-shape"></div>
-          <div class="about-flow">
-            <div class="flow-item fi-1">
-              <span class="flow-dot"></span>
-              <span class="flow-label"><i class="fa-solid fa-globe"></i> Your Website</span>
-            </div>
-            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-            <div class="flow-item fi-2">
-              <span class="flow-dot"></span>
-              <span class="flow-label"><i class="fa-solid fa-tags"></i> Google Tag Manager</span>
-            </div>
-            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-            <div class="flow-item fi-3">
-              <span class="flow-dot"></span>
-              <span class="flow-label">
-                <svg viewBox="0 0 16 16" width="14" height="14" style="flex-shrink:0"><path fill="#F9AB00" d="M14.5 14.3a1.6 1.6 0 0 1-1.74 1.67 1.66 1.66 0 0 1-1.44-1.65V1.98C11.32.93 12.1.28 12.94.33A1.61 1.61 0 0 1 14.5 2z"/><circle fill="#E37400" cx="2.92" cy="14.27" r="1.6"/><path fill="#E37400" d="M7.46 6.2a1.6 1.6 0 0 0-1.6 1.64v5.4c0 1.24.88 1.95 1.8 1.73a1.63 1.63 0 0 0 1.29-1.61V7.8a1.6 1.6 0 0 0-1.49-1.6z"/></svg>
-                Google Analytics 4
-              </span>
-            </div>
-            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-            <div class="flow-item fi-4">
-              <span class="flow-dot"></span>
-              <span class="flow-label"><i class="fa-solid fa-lightbulb" style="color:#f59e0b"></i> Actionable Insights</span>
-            </div>
-          </div>
-          <div class="about-metrics">
-            <div class="metric"><strong>150+</strong><span>Projects Done</span></div>
-            <div class="metric"><strong>5★</strong><span>Average Rating</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="about-text">
-        <span class="badge">Why Choose BinAnalytics</span>
-        <h2>Your Growth Partner — Not Just Another Agency</h2>
-        <p>Most agencies hide behind vanity metrics and confusing reports. We do the opposite. Every taka you invest is tracked, measured, and tied directly to revenue you can see.</p>
-        <p>We've helped 150+ brands stop wasting ad budget and start scaling profitably. You focus on running your business — we'll handle the data, the ads, and the growth.</p>
-        <div class="about-features">
-          <div class="about-feat"><i class="fa-solid fa-shield-halved"></i> Transparent Reporting</div>
-          <div class="about-feat"><i class="fa-solid fa-bolt"></i> Fast Turnaround</div>
-          <div class="about-feat"><i class="fa-solid fa-headset"></i> Dedicated Support</div>
-          <div class="about-feat"><i class="fa-solid fa-trophy"></i> Proven Results</div>
-        </div>
-        <a href="#contact" class="btn btn-primary">Claim Your Free Strategy Call <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROCESS ===== -->
-  <section class="process section" id="process">
+  <!-- ===== COUNTRIES ===== -->
+  <section class="section countries" id="countries">
     <div class="container">
       <div class="section-head">
-        <span class="badge">How We Work</span>
-        <h2>Our Proven <span class="highlight">4-Step Process</span></h2>
-        <p>No jargon, no surprises — a clear system that delivers results from day one.</p>
+        <span class="eyebrow">গন্তব্য</span>
+        <h2>আমরা যেসব <span class="gradient-text">দেশের</span> ভিসা দিয়ে থাকি</h2>
+        <p>বিশ্বের জনপ্রিয় গন্তব্যগুলোর জন্য নির্ভরযোগ্য ভিসা সেবা।</p>
       </div>
 
-      <div class="steps-grid">
-
-        <div class="pstep ps1">
-          <div class="pstep-bg-num">01</div>
-          <div class="pstep-top">
-            <div class="pstep-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-            <span class="pstep-num-badge">STEP 01</span>
-          </div>
-          <h3>Discovery & Audit</h3>
-          <p>We analyze your analytics setup, ad accounts, and website to find exactly where you're losing money and where the growth opportunities are.</p>
-          <ul class="pstep-list">
-            <li><i class="fa-solid fa-check"></i> GA4 & GTM full audit</li>
-            <li><i class="fa-solid fa-check"></i> Ad account review</li>
-            <li><i class="fa-solid fa-check"></i> Competitor analysis</li>
-          </ul>
-          <span class="pstep-deliver"><i class="fa-solid fa-circle-check"></i> Free audit report included</span>
-        </div>
-
-        <div class="pstep ps2">
-          <div class="pstep-bg-num">02</div>
-          <div class="pstep-top">
-            <div class="pstep-icon"><i class="fa-solid fa-lightbulb"></i></div>
-            <span class="pstep-num-badge">STEP 02</span>
-          </div>
-          <h3>Strategy & Planning</h3>
-          <p>We build a custom, data-backed growth strategy tailored to your goals and budget — so every taka invested works harder for your business.</p>
-          <ul class="pstep-list">
-            <li><i class="fa-solid fa-check"></i> Channel strategy</li>
-            <li><i class="fa-solid fa-check"></i> Budget & KPI planning</li>
-            <li><i class="fa-solid fa-check"></i> Audience targeting plan</li>
-          </ul>
-          <span class="pstep-deliver"><i class="fa-solid fa-circle-check"></i> Custom strategy document</span>
-        </div>
-
-        <div class="pstep ps3">
-          <div class="pstep-bg-num">03</div>
-          <div class="pstep-top">
-            <div class="pstep-icon"><i class="fa-solid fa-rocket"></i></div>
-            <span class="pstep-num-badge">STEP 03</span>
-          </div>
-          <h3>Launch & Execute</h3>
-          <p>We set up flawless tracking, launch high-converting campaigns, and build your website — fast and precise, ready to convert from day one.</p>
-          <ul class="pstep-list">
-            <li><i class="fa-solid fa-check"></i> GA4 & Pixel setup</li>
-            <li><i class="fa-solid fa-check"></i> Campaign launch</li>
-            <li><i class="fa-solid fa-check"></i> Website deployment</li>
-          </ul>
-          <span class="pstep-deliver"><i class="fa-solid fa-circle-check"></i> Go live in 7–14 days</span>
-        </div>
-
-        <div class="pstep ps4">
-          <div class="pstep-bg-num">04</div>
-          <div class="pstep-top">
-            <div class="pstep-icon"><i class="fa-solid fa-chart-line"></i></div>
-            <span class="pstep-num-badge">STEP 04</span>
-          </div>
-          <h3>Optimize & Grow</h3>
-          <p>We continuously monitor every metric, run A/B tests, and scale what works — turning good results into exceptional ROI month after month.</p>
-          <ul class="pstep-list">
-            <li><i class="fa-solid fa-check"></i> Weekly performance review</li>
-            <li><i class="fa-solid fa-check"></i> A/B testing & scaling</li>
-            <li><i class="fa-solid fa-check"></i> Monthly ROI reports</li>
-          </ul>
-          <span class="pstep-deliver"><i class="fa-solid fa-circle-check"></i> Monthly growth reports</span>
-        </div>
-
+      <div class="country-grid">
+        <div class="country-card reveal"><span class="flag">🇸🇦</span><h4>সৌদি আরব</h4><small>Saudi Arabia</small></div>
+        <div class="country-card reveal"><span class="flag">🇦🇪</span><h4>দুবাই</h4><small>UAE</small></div>
+        <div class="country-card reveal"><span class="flag">🇶🇦</span><h4>কাতার</h4><small>Qatar</small></div>
+        <div class="country-card reveal"><span class="flag">🇯🇵</span><h4>জাপান</h4><small>Japan</small></div>
+        <div class="country-card reveal"><span class="flag">🇨🇦</span><h4>কানাডা</h4><small>Canada</small></div>
+        <div class="country-card reveal"><span class="flag">🇦🇺</span><h4>অস্ট্রেলিয়া</h4><small>Australia</small></div>
+        <div class="country-card reveal"><span class="flag">🇫🇷</span><h4>ফ্রান্স</h4><small>France</small></div>
+        <div class="country-card reveal"><span class="flag">🇩🇪</span><h4>জার্মানি</h4><small>Germany</small></div>
+        <div class="country-card reveal"><span class="flag">🇬🇧</span><h4>ইংল্যান্ড</h4><small>UK</small></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TEAM ===== -->
-  <section class="team section" id="team">
+  <!-- ===== PROMISE ===== -->
+  <section class="section promise" id="promise">
     <div class="container">
       <div class="section-head">
-        <span class="badge">Meet the Team</span>
-        <h2>The Experts Behind Your Growth</h2>
-        <p>A passionate team of digital marketing specialists dedicated to your success.</p>
+        <span class="eyebrow">আমাদের প্রতিশ্রুতি</span>
+        <h2>কেন আমাদের <span class="gradient-text">বেছে নেবেন?</span></h2>
       </div>
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-avatar" style="--bg:#6366f1">A</div>
-          <h3>Arif Billah</h3>
-          <span class="team-role">Founder & Analytics Lead</span>
-          <p>GA4, GTM & conversion tracking expert with 5+ years helping brands make data-driven decisions.</p>
-          <div class="team-social">
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          </div>
+      <div class="promise-grid">
+        <div class="promise-card reveal">
+          <div class="pc-icon ring1"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>নির্ভরযোগ্য সেবা</h3>
+          <p>স্বচ্ছ প্রক্রিয়া ও বিশ্বস্ত হাতে আপনার ভ্রমণের প্রতিটি ধাপ সুরক্ষিত।</p>
         </div>
-        <div class="team-card">
-          <div class="team-avatar" style="--bg:#3b82f6">S</div>
-          <h3>Sarah Rahman</h3>
-          <span class="team-role">Facebook Ads Specialist</span>
-          <p>Meta-certified ads manager specializing in e-commerce campaigns with proven 3x+ ROAS results.</p>
-          <div class="team-social">
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          </div>
+        <div class="promise-card reveal">
+          <div class="pc-icon ring2"><i class="fa-solid fa-gauge-high"></i></div>
+          <h3>দ্রুত প্রসেসিং</h3>
+          <p>সময়ের কাজ সময়ে — দ্রুততম সময়ে ভিসা ও টিকেট হাতে পাবেন।</p>
         </div>
-        <div class="team-card">
-          <div class="team-avatar" style="--bg:#10b981">R</div>
-          <h3>Rahim Khan</h3>
-          <span class="team-role">Google Ads Manager</span>
-          <p>Google-certified PPC expert managing $500K+ in ad spend annually across Search and Shopping.</p>
-          <div class="team-social">
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar" style="--bg:#f59e0b">N</div>
-          <h3>Nadia Islam</h3>
-          <span class="team-role">Web Designer & Developer</span>
-          <p>WordPress & Shopify expert crafting beautiful, fast, high-converting websites and online stores.</p>
-          <div class="team-social">
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          </div>
+        <div class="promise-card reveal">
+          <div class="pc-icon ring3"><i class="fa-solid fa-face-smile"></i></div>
+          <h3>গ্রাহক সন্তুষ্টি</h3>
+          <p>আপনার সন্তুষ্টিই আমাদের সাফল্য — প্রতিটি গ্রাহকের পাশে সবসময়।</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials section">
+  <!-- ===== CTA / CONTACT ===== -->
+  <section class="section cta-section" id="contact">
     <div class="container">
-      <div class="section-head">
-        <span class="badge">Client Reviews</span>
-        <h2>Don't Take Our Word For It — <span class="highlight">Hear Theirs</span></h2>
-        <p>Join 150+ business owners who turned their marketing into a profit machine.</p>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p>"BinAnalytics completely transformed our Facebook ad performance. Our ROAS went from 1.2x to 4.5x in just 3 months!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="--bg:#6366f1">M</div>
-            <div><strong>Mohammad Ali</strong><span>E-commerce Owner</span></div>
-          </div>
+      <div class="cta-box reveal">
+        <div class="cta-bg-orb"></div>
+        <h2>আজই শুরু করুন আপনার <span class="gradient-text">ভ্রমণ পরিকল্পনা</span></h2>
+        <p>ভিসা বা টিকেট সম্পর্কিত যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন।</p>
+        <div class="cta-actions">
+          <a href="tel:+8801538372804" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-phone"></i> +880 1538-372804
+          </a>
+          <a href="https://wa.me/8801538372804" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
         </div>
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p>"Their GA4 setup and reporting is outstanding. I finally understand what's happening on my website and where my sales come from."</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="--bg:#3b82f6">F</div>
-            <div><strong>Fatima Begum</strong><span>Online Store Owner</span></div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p>"The Shopify store they built is gorgeous and lightning fast. Sales increased 60% in the first month after launch."</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="--bg:#10b981">K</div>
-            <div><strong>Karim Hossain</strong><span>Retail Business Owner</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA BANNER ===== -->
-  <section class="cta-banner">
-    <div class="container cta-inner">
-      <div class="cta-content">
-        <span class="badge"><i class="fa-solid fa-fire"></i> Limited Slots This Month</span>
-        <h2>Ready to Stop Wasting Money & Start Scaling?</h2>
-        <p>Book your <strong>FREE 30-minute growth audit</strong> today. We'll show you exactly where you're losing money and how to fix it — no strings attached.</p>
-        <div class="cta-btns">
-          <a href="#contact" class="btn btn-white">Book My Free Audit <i class="fa-solid fa-arrow-right"></i></a>
-          <span class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i> 100% Free • No Obligation</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section class="contact section" id="contact">
-    <div class="container contact-inner">
-      <div class="contact-info">
-        <span class="badge">Get In Touch</span>
-        <h2>Let's Build Your Growth Plan — Free</h2>
-        <p>Tell us about your business and we'll show you exactly how to scale. No pressure, no jargon — just a clear path to more customers.</p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span>hello@binanalytics.com</span>
-          </div>
-          <div class="contact-item">
-            <i class="fa-brands fa-whatsapp"></i>
-            <a href="https://wa.me/8801854626927" target="_blank" style="color:inherit;text-decoration:none;">+880 1854-626927</a>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Dhaka, Bangladesh</span>
-          </div>
-        </div>
-        <div class="social-links">
-          <a href="#" class="social-btn"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" class="social-btn"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-      </div>
-      <div class="contact-form-wrap">
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="John Doe" required />
-            </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" placeholder="john@example.com" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Service You Need</label>
-            <select>
-              <option value="">Select a service...</option>
-              <option>Web Analytics (GA4/GTM)</option>
-              <option>Facebook Ads</option>
-              <option>Google Ads</option>
-              <option>WordPress Website</option>
-              <option>Shopify Store</option>
-              <option>All Services</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Your Message</label>
-            <textarea rows="4" placeholder="Tell us about your project..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">Send via WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
-          <p class="form-note"><i class="fa-solid fa-lock"></i> Your message will be sent directly to our WhatsApp.</p>
-        </form>
       </div>
     </div>
   </section>
@@ -640,49 +257,33 @@
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="#" class="logo">Bin<span>Analytics</span></a>
-        <p>Data-driven digital marketing agency helping businesses grow through analytics, ads, and web design.</p>
+      <div class="f-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark"><i class="fa-solid fa-paper-plane"></i></span>
+          <span class="logo-text">Travel<span>Visa</span></span>
+        </a>
+        <p>আপনার বিশ্বস্ত ট্র্যাভেল ও ভিসা সার্ভিস পার্টনার।</p>
       </div>
-      <div class="footer-links">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Web Analytics</a></li>
-          <li><a href="#services">Facebook Ads</a></li>
-          <li><a href="#services">Google Ads</a></li>
-          <li><a href="#services">WordPress & Shopify</a></li>
-        </ul>
+      <div class="f-col">
+        <h5>সার্ভিস</h5>
+        <a href="#services">ভিসা প্রসেসিং</a>
+        <a href="#services">টিকেট প্রসেসিং</a>
+        <a href="#services">কনসালটেন্সি</a>
       </div>
-      <div class="footer-links">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#team">Our Team</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-        </ul>
+      <div class="f-col">
+        <h5>যোগাযোগ</h5>
+        <a href="tel:+8801538372804"><i class="fa-solid fa-phone"></i> +880 1538-372804</a>
+        <a href="https://wa.me/8801538372804"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2025 BinAnalytics. All rights reserved.</p>
-      </div>
+      <div class="container">© ২০২৬ TravelVisa। সর্বস্বত্ব সংরক্ষিত।</div>
     </div>
   </footer>
 
-  <!-- ===== FLOATING WHATSAPP ===== -->
-  <a href="https://wa.me/8801854626927?text=Hello%20BinAnalytics!%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <!-- floating whatsapp -->
+  <a href="https://wa.me/8801538372804" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
-    <span class="wa-tooltip">Chat with us!</span>
   </a>
 
   <script src="script.js"></script>
