@@ -535,7 +535,7 @@ p { color: var(--text); }
 
 /* ===== CTA BANNER ===== */
 .cta-banner {
-  background: var(--gradient);
+  background: linear-gradient(160deg, #0a1440 0%, #0f1f35 50%, #1d3557 100%);
   padding: 90px 0;
   position: relative;
   overflow: hidden;
@@ -544,9 +544,10 @@ p { color: var(--text); }
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 15% 50%, rgba(233,196,106,0.45) 0%, transparent 55%),
-    radial-gradient(circle at 85% 30%, rgba(45,95,138,0.3) 0%, transparent 55%);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 .cta-inner { position: relative; text-align: center; }
 .cta-content { max-width: 700px; margin: 0 auto; }
