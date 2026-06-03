@@ -535,7 +535,7 @@ p { color: var(--text); }
 
 /* ===== CTA BANNER ===== */
 .cta-banner {
-  background: var(--dark);
+  background: var(--gradient);
   padding: 90px 0;
   position: relative;
   overflow: hidden;
@@ -1689,9 +1689,10 @@ p { color: var(--text); }
 }
 
 /* Mini CTA strip used on subpages */
-.mini-cta { background: var(--dark); text-align: center; }
-.mini-cta h2 { color: var(--white); margin-bottom: 14px; }
-.mini-cta p { color: #94a3b8; max-width: 540px; margin: 0 auto 28px; }
+.mini-cta { background: var(--white); text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.mini-cta h2 { color: var(--dark); margin-bottom: 14px; }
+.mini-cta p { color: var(--text); max-width: 540px; margin: 0 auto 28px; }
+.mini-cta .badge { background: rgba(29,53,87,0.08); color: var(--primary); }
 
 /* Responsive */
 @media (max-width: 900px) {
