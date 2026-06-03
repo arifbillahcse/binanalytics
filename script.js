@@ -117,6 +117,18 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   }, 3000);
 });
 
+// About live card — skill bar animation on scroll
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.alc-fill').forEach(bar => bar.classList.add('animated'));
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+const alcCard = document.querySelector('.about-live-card');
+if (alcCard) skillObserver.observe(alcCard);
+
 // Smooth active nav highlight
 const sections = document.querySelectorAll('section[id]');
 const navA = document.querySelectorAll('.nav-links a');

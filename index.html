@@ -342,36 +342,105 @@
   <section class="about section" id="about">
     <div class="container about-inner">
       <div class="about-visual">
-        <div class="about-img-wrap">
-          <div class="about-shape"></div>
-          <div class="about-flow">
-            <div class="flow-item fi-1">
-              <span class="flow-dot"></span>
-              <span class="flow-label"><i class="fa-solid fa-globe"></i> Your Website</span>
+        <div class="about-live-card">
+
+          <!-- Header -->
+          <div class="alc-head">
+            <span class="alc-title"><i class="fa-solid fa-users"></i> Our Team</span>
+            <span class="alc-status"><span class="lp-dot"></span> Active Now</span>
+          </div>
+
+          <!-- Team members -->
+          <div class="alc-team">
+            <div class="alc-member">
+              <div class="alc-avatar" style="--av:#1d4ed8">AS</div>
+              <div class="alc-info">
+                <strong>Abu Sazzad Bin Islam</strong>
+                <span>CEO & Strategy Lead</span>
+              </div>
+              <span class="alc-badge ceo">CEO</span>
             </div>
-            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-            <div class="flow-item fi-2">
-              <span class="flow-dot"></span>
-              <span class="flow-label"><i class="fa-solid fa-tags"></i> Google Tag Manager</span>
+            <div class="alc-member">
+              <div class="alc-avatar" style="--av:#1877f2">M</div>
+              <div class="alc-info">
+                <strong>Mamun</strong>
+                <span>Facebook Ads Specialist</span>
+              </div>
+              <span class="alc-badge fb">Meta</span>
             </div>
-            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-            <div class="flow-item fi-3">
-              <span class="flow-dot"></span>
-              <span class="flow-label">
-                <svg viewBox="0 0 16 16" width="14" height="14" style="flex-shrink:0"><path fill="#F9AB00" d="M14.5 14.3a1.6 1.6 0 0 1-1.74 1.67 1.66 1.66 0 0 1-1.44-1.65V1.98C11.32.93 12.1.28 12.94.33A1.61 1.61 0 0 1 14.5 2z"/><circle fill="#E37400" cx="2.92" cy="14.27" r="1.6"/><path fill="#E37400" d="M7.46 6.2a1.6 1.6 0 0 0-1.6 1.64v5.4c0 1.24.88 1.95 1.8 1.73a1.63 1.63 0 0 0 1.29-1.61V7.8a1.6 1.6 0 0 0-1.49-1.6z"/></svg>
-                Google Analytics 4
-              </span>
-            </div>
-            <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-            <div class="flow-item fi-4">
-              <span class="flow-dot"></span>
-              <span class="flow-label"><i class="fa-solid fa-lightbulb" style="color:#f59e0b"></i> Actionable Insights</span>
+            <div class="alc-member">
+              <div class="alc-avatar" style="--av:#0ea5e9">AB</div>
+              <div class="alc-info">
+                <strong>Arif Billah</strong>
+                <span>Web Developer</span>
+              </div>
+              <span class="alc-badge dev">Dev</span>
             </div>
           </div>
-          <div class="about-metrics">
-            <div class="metric"><strong>150+</strong><span>Projects Done</span></div>
-            <div class="metric"><strong>5★</strong><span>Average Rating</span></div>
+
+          <!-- Live animated metrics row -->
+          <div class="alc-metrics">
+            <div class="alc-metric">
+              <span class="alc-micon" style="--mic:#1d4ed8"><i class="fa-solid fa-chart-pie"></i></span>
+              <div>
+                <strong id="aboutClients">150+</strong>
+                <span>Clients</span>
+              </div>
+            </div>
+            <div class="alc-metric">
+              <span class="alc-micon" style="--mic:#1877f2"><i class="fa-solid fa-bullseye"></i></span>
+              <div>
+                <strong id="aboutROAS">3.5x</strong>
+                <span>Avg ROAS</span>
+              </div>
+            </div>
+            <div class="alc-metric">
+              <span class="alc-micon" style="--mic:#10b981"><i class="fa-solid fa-star"></i></span>
+              <div>
+                <strong>5.0★</strong>
+                <span>Rating</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Animated progress bars -->
+          <div class="alc-skills">
+            <div class="alc-skill">
+              <span>Web Analytics</span>
+              <div class="alc-bar"><span class="alc-fill" style="--fw:97%"></span></div>
+              <span class="alc-pct">97%</span>
+            </div>
+            <div class="alc-skill">
+              <span>Facebook Ads</span>
+              <div class="alc-bar"><span class="alc-fill" style="--fw:94%"></span></div>
+              <span class="alc-pct">94%</span>
+            </div>
+            <div class="alc-skill">
+              <span>Google Ads</span>
+              <div class="alc-bar"><span class="alc-fill" style="--fw:91%"></span></div>
+              <span class="alc-pct">91%</span>
+            </div>
+            <div class="alc-skill">
+              <span>Web Design</span>
+              <div class="alc-bar"><span class="alc-fill" style="--fw:95%"></span></div>
+              <span class="alc-pct">95%</span>
+            </div>
+          </div>
+
+          <!-- Live activity ticker -->
+          <div class="alc-activity-wrap">
+            <div class="alc-activity-scroll">
+              <div class="alc-act"><span class="act-dot" style="--ac:#10b981"></span><span>New GA4 setup completed for e-commerce client</span></div>
+              <div class="alc-act"><span class="act-dot" style="--ac:#1877f2"></span><span>Facebook campaign ROAS reached 4.2x</span></div>
+              <div class="alc-act"><span class="act-dot" style="--ac:#ea4335"></span><span>Google Ads conversion rate up 38%</span></div>
+              <div class="alc-act"><span class="act-dot" style="--ac:#f59e0b"></span><span>New Shopify store launched — 120 sales day 1</span></div>
+              <div class="alc-act"><span class="act-dot" style="--ac:#10b981"></span><span>New GA4 setup completed for e-commerce client</span></div>
+              <div class="alc-act"><span class="act-dot" style="--ac:#1877f2"></span><span>Facebook campaign ROAS reached 4.2x</span></div>
+              <div class="alc-act"><span class="act-dot" style="--ac:#ea4335"></span><span>Google Ads conversion rate up 38%</span></div>
+              <div class="alc-act"><span class="act-dot" style="--ac:#f59e0b"></span><span>New Shopify store launched — 120 sales day 1</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="about-text">
