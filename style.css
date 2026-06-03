@@ -1037,24 +1037,43 @@ p { color: var(--text); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+  /* --- Hero --- */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+    text-align: center;
+    padding: 24px 16px 48px;
+  }
+  /* Live panel first, text second */
+  .hero-visual { order: -1; }
+  .hero-text  { order: 1; }
+
   .hero-btns { justify-content: center; }
-  .hero-stats { justify-content: center; }
+  .hero-stats { justify-content: center; flex-wrap: nowrap; gap: 14px; }
+  .stat strong { font-size: 1.25rem; }
+  .stat span   { font-size: 0.72rem; }
+  .stat-divider { display: block; }
+
+  /* Hide orbits; panel fills full width */
+  .orbit-wrap { display: none; }
+  .hero-visual {
+    height: auto;
+    width: 100%;
+    padding: 0 0 28px;
+  }
+  .live-panel {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  /* Hide accent card on mobile */
+  .accent-card { display: none; }
+
+  /* --- Other sections --- */
   .about-inner { grid-template-columns: 1fr; gap: 40px; }
   .about-img-wrap { height: auto; }
   .contact-inner { grid-template-columns: 1fr; gap: 40px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
-  /* Mobile hero visual — hide orbits, show dashboard only */
-  .orbit-wrap { display: none; }
-  .hero-visual {
-    height: auto;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .dashboard { max-width: 100%; }
-  .accent-card { position: static; margin-top: 16px; display: inline-flex; }
 }
 
 @media (max-width: 640px) {
@@ -1077,8 +1096,17 @@ p { color: var(--text); }
   .form-row { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .contact-form-wrap { padding: 24px; }
-  .hero-stats { flex-direction: column; gap: 16px; text-align: center; }
-  .stat-divider { width: 40px; height: 1px; }
+  /* Keep stats in one row on small screens */
+  .hero-stats { flex-direction: row; flex-wrap: nowrap; gap: 10px; justify-content: center; }
+  .stat-divider { width: 1px; height: 32px; flex-shrink: 0; }
+  .stat strong { font-size: 1.1rem; }
+  .stat span   { font-size: 0.68rem; }
+  .hero-trust  { font-size: 0.78rem; }
+  /* Slightly smaller panel on very small screens */
+  .live-panel { padding: 14px; }
+  .lp-metrics { gap: 8px; }
+  .lp-m { padding: 8px 10px; }
+  .lp-mval { font-size: 1.2rem; }
 }
 
 /* ===== SCROLL ANIMATIONS ===== */
