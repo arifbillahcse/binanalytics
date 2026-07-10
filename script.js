@@ -21,7 +21,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.service-card, .step, .team-card, .testi-card, .about-text, .about-visual, .contact-info, .contact-form-wrap, .result-item, .cta-content, .value-card, .price-card, .feature-split, .faq-item').forEach(el => {
+document.querySelectorAll('.service-card, .step, .team-card, .testi-card, .about-text, .about-visual, .contact-info, .contact-form-wrap, .result-item, .cta-content, .value-card, .price-card, .feature-split, .faq-item, .track-card, .case-card, .auto-card, .pstep').forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
   // Initial count-up on load
   animCount(usersEl,  4280, 1800, 0);
   animCount(eventsEl, 12.4, 1400, 1);
-  animCount(convEl,   1847, 2000, 0);
+  animCount(convEl,   9.2, 1600, 1);
 
   // Live ticking — random small changes every 2.5s
   setInterval(() => {
@@ -81,8 +81,9 @@ window.addEventListener('load', () => {
     const e = parseFloat(eventsEl.textContent);
     eventsEl.textContent = Math.max(8, e + (Math.random()*1.2 - 0.5)).toFixed(1);
 
-    const c = parseInt(convEl.textContent.replace(/,/g,''), 10);
-    convEl.textContent = (c + Math.floor(Math.random()*3)).toLocaleString();
+    // Match Quality — bounded decimal between 8.8 and 9.7
+    const c = parseFloat(convEl.textContent);
+    convEl.textContent = Math.min(9.7, Math.max(8.8, c + (Math.random()*0.4 - 0.2))).toFixed(1);
   }, 2500);
 });
 
