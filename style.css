@@ -200,13 +200,15 @@ p { color: var(--text); }
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 80px;
   align-items: center;
   position: relative;
   z-index: 1;
   padding: 60px 24px;
 }
+.hero-text { min-width: 0; }
+.hero-visual { min-width: 0; }
 .hero-text .badge { background: rgba(233,196,106,0.18); }
 .hero-text h1 { color: var(--white); margin-bottom: 20px; }
 .hero-text p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 36px; max-width: 480px; }
@@ -337,7 +339,7 @@ p { color: var(--text); }
 /* Metric chips */
 .lp-metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-bottom: 1px solid var(--border);
 }
 .lp-m {
@@ -352,11 +354,12 @@ p { color: var(--text); }
 /* Main area: donut + feed */
 .lp-main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0;
   padding: 16px;
   border-bottom: 1px solid var(--border);
 }
+.lp-feed { min-width: 0; }
 
 /* Donut */
 .lp-donut-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -1041,7 +1044,7 @@ p { color: var(--text); }
 @media (max-width: 900px) {
   /* --- Hero --- */
   .hero-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
     text-align: center;
     padding: 24px 16px 48px;
