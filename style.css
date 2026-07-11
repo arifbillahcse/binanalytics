@@ -1774,6 +1774,18 @@ p { color: var(--text); }
   font-weight: 500;
 }
 .track-list i { color: #10b981; font-size: 0.8rem; margin-top: 3px; }
+.track-owner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+.track-owner i { color: var(--accent); font-size: 0.8rem; }
 
 /* ===== CASE STUDIES ===== */
 .cases { background: var(--white); }
