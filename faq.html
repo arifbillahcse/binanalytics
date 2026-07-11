@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ – BinAnalytics | Technical Questions, Straight Answers</title>
+  <meta name="description" content="Answers to the technical questions decision-makers actually ask before hiring for development and tracking — dev, GA4 & server-side, automation, ownership, and how we work together." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Bin<span>Analytics</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="case-studies.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary nav-cta">Book a Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="hero-bg"></div>
+    <div class="container page-hero-inner">
+      <span class="badge"><i class="fa-solid fa-circle-question"></i> Frequently Asked</span>
+      <h1>Technical Questions, <span class="highlight">Straight Answers</span></h1>
+      <p>The stuff decision-makers actually ask before hiring one person for both development and tracking — grouped by topic so you can jump to what matters.</p>
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>FAQ</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ===== FAQ: GENERAL ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">General</span>
+        <h2>The <span class="highlight">Basics</span></h2>
+        <p>Who you're hiring and how the one-lead-plus-specialists model works.</p>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q">Is it really just you, or is there a team? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Both. I personally lead and own every project as your single point of contact — but I work with a small team of individual specialists in ads and automation, each an expert in exactly one lane. You're never routed through a generalist agency; you're always talking to me.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you do both development and tracking, or just one? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Both — personally. I build the site <em>and</em> the tracking myself, so the dataLayer, events, and pixels are designed together instead of bolted on by a second freelancer who doesn't understand the code. Ads and automation are handled by individual specialists I lead directly.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What size and type of business do you work with? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Mostly e-commerce (Shopify), lead-gen and service businesses (WordPress), and small agencies who need a tracking specialist they can trust. If you're a technical decision-maker who's been burned by a dev who didn't get tracking — or a marketer who didn't get dev — that's exactly who this is for.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ: DEVELOPMENT ===== -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">Track A · Development</span>
+        <h2>Website <span class="highlight">Development</span></h2>
+        <p>Shopify, WordPress, and building things that convert.</p>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q">Do you build on Shopify, WordPress, or both? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Both. Shopify theme development and customization for e-commerce, WordPress/WooCommerce for content and lead-gen sites. I build the front end and the dataLayer together, so tracking drops in cleanly instead of fighting the theme.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can you improve the speed of my existing site? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes. Core Web Vitals and PageSpeed tuning are part of every build and available as a standalone fix — image handling, script loading, render-blocking resources, and theme bloat are the usual culprits.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Will the build be mobile-friendly and SEO-ready? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Always. Every build is mobile-first, semantically structured for SEO, and validated across breakpoints before handoff — a fast, clean site is the foundation everything else sits on.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ: TRACKING ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">Track B · Tracking</span>
+        <h2>Tracking &amp; <span class="highlight">Analytics</span></h2>
+        <p>The specialty — GA4, server-side, CAPI, and surviving signal loss.</p>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q">Can you set up server-side tracking and Meta CAPI? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes. Server-side GTM, Meta &amp; TikTok Conversions API, advanced matching, and event deduplication are core to what I do — it's how tracking survives iOS and consent-driven signal loss.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Will my GA4 data survive iOS and consent changes? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>As well as it possibly can. I move critical events server-side, implement Consent Mode correctly, and rely on first-party data so you keep the strongest possible signal within privacy rules.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">My reported conversions don't match my actual sales. Can you fix that? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>That's one of the most common problems I fix. It's usually duplicate events (pixel + CAPI firing without a shared <code>event_id</code>), missing deduplication, or broken attribution. I audit, find the root cause, and rebuild the event stream so your numbers match reality.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can you track phone calls and offline conversions? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes. I capture GCLID/click IDs, wire up CallRail and offline conversion imports, and push closed revenue back to Google and Meta so the ad platforms optimize toward real sales — not just clicks.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ: AUTOMATION & ADS ===== -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">Track C · Automation</span>
+        <h2>Automation &amp; <span class="highlight">Ads</span></h2>
+        <p>CRMs, workflows, and the ad management that data feeds.</p>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q">Which CRMs and automation tools do you work with? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>GoHighLevel, HubSpot, and Zoho on the CRM side; Zapier, CallRail, and Triple Whale for automation and attribution. If your stack uses something else, I can almost always wire it in.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you manage the ad campaigns too, or just the tracking? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Both are available. Tracking and automation I handle personally; Meta, TikTok, and Google Ads management is run by a dedicated ads specialist I lead directly — so the campaigns and the data feeding them are always in sync.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can you automate my reporting? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes. I build Looker Studio dashboards that pull from GA4 and the ad platforms and refresh themselves — so your numbers are always current without anyone touching a spreadsheet.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ: WORKING TOGETHER ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">Working Together</span>
+        <h2>Ownership, Timelines &amp; <span class="highlight">Communication</span></h2>
+        <p>How a project actually runs from first message to handoff.</p>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q">Do I keep ownership of all accounts and code? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Always. Every GA4 property, ad account, GTM container, pixel, and line of code is set up under your ownership. You're never locked in or held hostage — the handoff pack includes everything.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long does a typical project take? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>A focused tracking fix can be days; a full build with tracking and automation is usually a couple of weeks. You get a scoped timeline up front before any work starts — no open-ended surprises.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How do we work together and communicate? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Directly — WhatsApp, email, or calls, with me as your one point of contact throughout. You approve a spec before I build, get a QA walkthrough when it's done, and can reach me after launch — regardless of which specialist worked on which piece.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is verification handled — how do I know it actually works? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Nothing is "done" until it's proven. Every event is validated in GA4 DebugView and Tag Assistant with real test transactions, and you get a QA walkthrough (often a short video) plus a verification report before handoff.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MINI CTA ===== -->
+  <section class="section mini-cta">
+    <div class="container">
+      <span class="badge"><i class="fa-solid fa-comments"></i> Still Curious?</span>
+      <h2>Didn't See Your Question?</h2>
+      <p>Message me on WhatsApp with whatever you're wondering — I'll give you a straight answer, no sales pitch.</p>
+      <a href="contact.html" class="btn btn-primary">Ask Me Directly <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Bin<span>Analytics</span></a>
+        <p>Led personally by one specialist, backed by a small team of individual experts — building sites that convert and analytics you can actually trust.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#dev">Website Development</a></li>
+          <li><a href="services.html#tracking">Tracking &amp; Analytics</a></li>
+          <li><a href="services.html#automation">Automation &amp; Ads</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="https://wa.me/8801854626927" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 BinAnalytics. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/8801854626927?text=Hello%20BinAnalytics!%20I%20have%20a%20question." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="wa-tooltip">Chat with me!</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
