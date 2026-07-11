@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies – BinAnalytics | Real Tracking &amp; Dev Problems, Fixed</title>
+  <meta name="description" content="Real problems diagnosed and fixed — duplicate purchase events, unattributed phone leads, iOS 14.5 signal loss. Each case follows Problem → Diagnosis → Fix → Result with hard numbers." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Bin<span>Analytics</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="case-studies.html" class="active">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary nav-cta">Book a Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="hero-bg"></div>
+    <div class="container page-hero-inner">
+      <span class="badge"><i class="fa-solid fa-folder-open"></i> Selected Work</span>
+      <h1>Real Problems, <span class="highlight">Diagnosed &amp; Fixed</span></h1>
+      <p>No vanity screenshots. Every case follows the same honest format — the problem, how I diagnosed it, what I did, and the measurable result.</p>
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Case Studies</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS STRIP ===== -->
+  <section class="results">
+    <div class="container">
+      <div class="results-head">
+        <h2>Numbers From Recent Work</h2>
+        <p>The kind of measurable change good tracking and clean builds actually produce.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-item">
+          <strong data-count="38">0</strong><span class="suffix">%</span>
+          <p>Duplicate purchase events eliminated</p>
+        </div>
+        <div class="result-item">
+          <strong data-count="100">0</strong><span class="suffix">%</span>
+          <p>Of phone leads now attributed to ads</p>
+        </div>
+        <div class="result-item">
+          <strong data-count="9.2" data-decimal="1">0</strong><span class="suffix"> EMQ</span>
+          <p>Meta Event Match Quality reached</p>
+        </div>
+        <div class="result-item">
+          <strong data-count="700">0</strong><span class="suffix">k+</span>
+          <p>Monthly visitors tracked accurately</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASE STUDIES ===== -->
+  <!-- NOTE: Case-study numbers below are realistic PLACEHOLDERS. Replace with real client figures before launch. -->
+  <section class="cases section">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">The Details</span>
+        <h2>Three Problems, <span class="highlight">Three Clean Fixes</span></h2>
+        <p>Consistency beats creativity here — the same Problem → Diagnosis → Fix → Result format every time.</p>
+      </div>
+
+      <div class="cases-list">
+
+        <div class="case-card">
+          <div class="case-head">
+            <span class="case-tag"><i class="fa-brands fa-shopify"></i> Shopify · DTC</span>
+            <div class="case-tools">
+              <span>Server GTM</span><span>Meta CAPI</span><span>GA4</span>
+            </div>
+          </div>
+          <h3>Duplicate Purchase events were inflating ROAS by 38%</h3>
+          <div class="case-flow">
+            <div class="case-step cs-problem">
+              <span class="cs-label">Problem</span>
+              <p>A Shopify store doing 700k+ monthly visitors reported a ROAS that looked great on paper but didn't match Shopify's real revenue.</p>
+            </div>
+            <div class="case-step cs-diagnosis">
+              <span class="cs-label">Diagnosis</span>
+              <p>The Meta Pixel and Conversions API were both firing Purchase with no shared <code>event_id</code>, so every sale was counted twice.</p>
+            </div>
+            <div class="case-step cs-fix">
+              <span class="cs-label">Fix</span>
+              <p>Rebuilt tracking through server-side GTM with a single source of truth and proper <code>event_id</code> deduplication across browser + server.</p>
+            </div>
+            <div class="case-step cs-result">
+              <span class="cs-label">Result</span>
+              <p><strong>Eliminated 38% duplicate purchases</strong> — reporting now matches Shopify to within 1%.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-head">
+            <span class="case-tag"><i class="fa-brands fa-wordpress"></i> WordPress · Lead-Gen</span>
+            <div class="case-tools">
+              <span>CallRail</span><span>Zapier</span><span>Google Ads</span>
+            </div>
+          </div>
+          <h3>Phone leads were invisible — Google Ads was optimizing blind</h3>
+          <div class="case-flow">
+            <div class="case-step cs-problem">
+              <span class="cs-label">Problem</span>
+              <p>A service business generated most of its revenue from phone calls, but none of those calls were attributed back to the ads that drove them.</p>
+            </div>
+            <div class="case-step cs-diagnosis">
+              <span class="cs-label">Diagnosis</span>
+              <p>No offline conversion import existed and the GCLID was never captured on the call, so Google Ads couldn't tie calls to clicks.</p>
+            </div>
+            <div class="case-step cs-fix">
+              <span class="cs-label">Fix</span>
+              <p>Captured GCLID at form/call, piped CallRail → Zapier → Google Ads &amp; GA4 offline conversions with qualified-lead status.</p>
+            </div>
+            <div class="case-step cs-result">
+              <span class="cs-label">Result</span>
+              <p><strong>100% of phone leads now attributed</strong> — cost per qualified lead dropped 27% in 6 weeks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-head">
+            <span class="case-tag"><i class="fa-brands fa-meta"></i> DTC · Post-iOS 14.5</span>
+            <div class="case-tools">
+              <span>Meta CAPI</span><span>Triple Whale</span><span>sGTM</span>
+            </div>
+          </div>
+          <h3>Meta reporting collapsed after iOS 14.5 signal loss</h3>
+          <div class="case-flow">
+            <div class="case-step cs-problem">
+              <span class="cs-label">Problem</span>
+              <p>After iOS 14.5, a DTC brand's Meta-reported conversions cratered and no longer matched blended revenue — making scaling decisions a guess.</p>
+            </div>
+            <div class="case-step cs-diagnosis">
+              <span class="cs-label">Diagnosis</span>
+              <p>Tracking was browser-pixel only with weak advanced matching, giving an Event Match Quality of just 6.1 and heavy signal loss.</p>
+            </div>
+            <div class="case-step cs-fix">
+              <span class="cs-label">Fix</span>
+              <p>Deployed server-side Meta CAPI with full advanced matching and added Triple Whale for a blended, first-party view of performance.</p>
+            </div>
+            <div class="case-step cs-result">
+              <span class="cs-label">Result</span>
+              <p><strong>EMQ rose 6.1 → 9.2</strong>, recovering ~32% of previously lost attributed conversions.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="cases-note"><i class="fa-solid fa-circle-info"></i> Figures shown are representative placeholders — swap in your real client numbers before launch.</p>
+    </div>
+  </section>
+
+  <!-- ===== WHAT EVERY ENGAGEMENT INCLUDES ===== -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">Consistent Every Time</span>
+        <h2>What You Get on <span class="highlight">Every Project</span></h2>
+        <p>The same rigor whether it's a one-page fix or a full rebuild.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#1d3557"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3>A Real Diagnosis</h3>
+          <p>I find the actual root cause — event dedup, EMQ, missing GCLID — not a surface-level guess.</p>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#2d5f8a"><i class="fa-solid fa-vial-circle-check"></i></div>
+          <h3>Verified, Not Assumed</h3>
+          <p>Every fix is validated in DebugView and Tag Assistant with real test transactions before it's called done.</p>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#e9c46a"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Measurable Results</h3>
+          <p>Outcomes tied to numbers you can check — accuracy, match quality, attribution, cost per lead.</p>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#10b981"><i class="fa-solid fa-key"></i></div>
+          <h3>Full Ownership</h3>
+          <p>Every account, container, and line of code is yours, with documentation handed over at the end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MINI CTA ===== -->
+  <section class="section mini-cta">
+    <div class="container">
+      <span class="badge"><i class="fa-solid fa-comments"></i> Your Turn</span>
+      <h2>Want a Result Like These?</h2>
+      <p>Tell me what's broken or what you're building. I'll reply with a straight assessment of what it'll take — no obligation.</p>
+      <a href="contact.html" class="btn btn-primary">Book a Call <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Bin<span>Analytics</span></a>
+        <p>Led personally by one specialist, backed by a small team of individual experts — building sites that convert and analytics you can actually trust.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#dev">Website Development</a></li>
+          <li><a href="services.html#tracking">Tracking &amp; Analytics</a></li>
+          <li><a href="services.html#automation">Automation &amp; Ads</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="case-studies.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="https://wa.me/8801854626927" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 BinAnalytics. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/8801854626927?text=Hello%20BinAnalytics!%20I%20saw%20your%20case%20studies%20and%20want%20to%20talk." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="wa-tooltip">Chat with me!</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
