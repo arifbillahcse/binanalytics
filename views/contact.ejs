@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+
+<%- include('partials/navbar') %>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="hero-bg"></div>
+    <div class="container page-hero-inner">
+      <span class="badge"><i class="fa-solid fa-paper-plane"></i> Get In Touch</span>
+      <h1>Let's Talk About <span class="highlight">Your Project</span></h1>
+      <p>Tell me what's broken or what you're building. I'll reply personally with a straight assessment of what it'll take — no sales pitch, no jargon.</p>
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Contact</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact section">
+    <div class="container contact-inner">
+      <div class="contact-info">
+        <span class="badge">Talk to Me</span>
+        <h2>I Usually Reply the Same Day</h2>
+        <p>The fastest way to reach me is WhatsApp. Send a message and you'll hear back from me directly — the person who'll actually be doing the work, not an account manager.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>hello@binanalytics.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/8801854626927" target="_blank" style="color:inherit;text-decoration:none;">+880 1854-626927</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Dhaka, Bangladesh · Working worldwide</span>
+          </div>
+        </div>
+        <!-- TODO: replace "#" with real profile URLs before launch -->
+
+        <div class="social-links">
+          <a href="#" class="social-btn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="john@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>What do you need?</label>
+            <select>
+              <option value="">Select a track...</option>
+              <option>Website Development (Shopify / WordPress)</option>
+              <option>Tracking &amp; Analytics (GA4 / Server-side / CAPI)</option>
+              <option>Automation &amp; Ads (CRM / Zapier / Ads)</option>
+              <option>All of the above</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea rows="4" placeholder="Tell me what's broken or what you're building..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send via WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
+          <p class="form-note"><i class="fa-solid fa-lock"></i> Your message goes straight to my WhatsApp.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT HAPPENS NEXT ===== -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge">No Guesswork</span>
+        <h2>What Happens <span class="highlight">After You Message</span></h2>
+        <p>A simple, predictable path from first message to a scoped plan — you'll always know the next step.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#1d3557"><i class="fa-solid fa-reply"></i></div>
+          <h3>1. I Reply Personally</h3>
+          <p>Usually the same day, from me directly — with clarifying questions if I need them.</p>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#2d5f8a"><i class="fa-solid fa-phone"></i></div>
+          <h3>2. A Free Call</h3>
+          <p>A no-pressure 30-minute call to understand your setup, your goals, and what's actually broken.</p>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#e9c46a"><i class="fa-solid fa-file-lines"></i></div>
+          <h3>3. A Scoped Plan</h3>
+          <p>A clear plan of what I'd do, how long it takes, and what it costs — priced up front, no surprises.</p>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon" style="--vc:#10b981"><i class="fa-solid fa-rocket"></i></div>
+          <h3>4. We Start</h3>
+          <p>Once you approve, I build — with a QA walkthrough and full ownership handoff at the end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>
+<%- include('partials/whatsapp-float', { waText }) %>
+</body>
+</html>
