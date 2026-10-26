@@ -19,6 +19,16 @@ app.use((req, res) => {
   res.status(404).send('Page not found.');
 });
 
+// Error handler — catches DB/render failures from the route handlers above
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send(
+    process.env.NODE_ENV === 'production'
+      ? 'Something went wrong. Please try again shortly.'
+      : `Server error: ${err.message}`
+  );
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`BinAnalytics server running at http://localhost:${PORT}`);

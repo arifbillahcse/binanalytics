@@ -49,7 +49,9 @@
   </section>
 
   <!-- ===== CASE STUDIES ===== -->
-  <!-- NOTE: Case-study numbers below are realistic PLACEHOLDERS. Replace with real client figures before launch. -->
+  <!-- Case-study content is loaded from the database (db/schema.sql + db/seed.sql, -->
+  <!-- via models/caseStudies.js). Seeded figures are flagged is_placeholder=1 until -->
+  <!-- replaced with real client numbers. -->
   <section class="cases section">
     <div class="container">
       <div class="section-head">
@@ -59,93 +61,41 @@
       </div>
 
       <div class="cases-list">
-
+<% caseStudies.forEach(function(c) { %>
         <div class="case-card">
           <div class="case-head">
-            <span class="case-tag"><i class="fa-brands fa-shopify"></i> Shopify · DTC</span>
+            <span class="case-tag"><i class="<%= c.tag_icon %>"></i> <%= c.tag %></span>
             <div class="case-tools">
-              <span>Server GTM</span><span>Meta CAPI</span><span>GA4</span>
+<% c.tools.forEach(function(tool) { %>
+              <span><%= tool %></span>
+<% }); %>
             </div>
           </div>
-          <h3>Duplicate Purchase events were inflating ROAS by 38%</h3>
+          <h3><%= c.title %></h3>
           <div class="case-flow">
             <div class="case-step cs-problem">
               <span class="cs-label">Problem</span>
-              <p>A Shopify store doing 700k+ monthly visitors reported a ROAS that looked great on paper but didn't match Shopify's real revenue.</p>
+              <p><%- c.problem %></p>
             </div>
             <div class="case-step cs-diagnosis">
               <span class="cs-label">Diagnosis</span>
-              <p>The Meta Pixel and Conversions API were both firing Purchase with no shared <code>event_id</code>, so every sale was counted twice.</p>
+              <p><%- c.diagnosis %></p>
             </div>
             <div class="case-step cs-fix">
               <span class="cs-label">Fix</span>
-              <p>Rebuilt tracking through server-side GTM with a single source of truth and proper <code>event_id</code> deduplication across browser + server.</p>
+              <p><%- c.fix %></p>
             </div>
             <div class="case-step cs-result">
               <span class="cs-label">Result</span>
-              <p><strong>Eliminated 38% duplicate purchases</strong> — reporting now matches Shopify to within 1%.</p>
+              <p><%- c.result %></p>
             </div>
           </div>
         </div>
-
-        <div class="case-card">
-          <div class="case-head">
-            <span class="case-tag"><i class="fa-brands fa-wordpress"></i> WordPress · Lead-Gen</span>
-            <div class="case-tools">
-              <span>CallRail</span><span>Zapier</span><span>Google Ads</span>
-            </div>
-          </div>
-          <h3>Phone leads were invisible — Google Ads was optimizing blind</h3>
-          <div class="case-flow">
-            <div class="case-step cs-problem">
-              <span class="cs-label">Problem</span>
-              <p>A service business generated most of its revenue from phone calls, but none of those calls were attributed back to the ads that drove them.</p>
-            </div>
-            <div class="case-step cs-diagnosis">
-              <span class="cs-label">Diagnosis</span>
-              <p>No offline conversion import existed and the GCLID was never captured on the call, so Google Ads couldn't tie calls to clicks.</p>
-            </div>
-            <div class="case-step cs-fix">
-              <span class="cs-label">Fix</span>
-              <p>Captured GCLID at form/call, piped CallRail → Zapier → Google Ads &amp; GA4 offline conversions with qualified-lead status.</p>
-            </div>
-            <div class="case-step cs-result">
-              <span class="cs-label">Result</span>
-              <p><strong>100% of phone leads now attributed</strong> — cost per qualified lead dropped 27% in 6 weeks.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="case-card">
-          <div class="case-head">
-            <span class="case-tag"><i class="fa-brands fa-meta"></i> DTC · Post-iOS 14.5</span>
-            <div class="case-tools">
-              <span>Meta CAPI</span><span>Triple Whale</span><span>sGTM</span>
-            </div>
-          </div>
-          <h3>Meta reporting collapsed after iOS 14.5 signal loss</h3>
-          <div class="case-flow">
-            <div class="case-step cs-problem">
-              <span class="cs-label">Problem</span>
-              <p>After iOS 14.5, a DTC brand's Meta-reported conversions cratered and no longer matched blended revenue — making scaling decisions a guess.</p>
-            </div>
-            <div class="case-step cs-diagnosis">
-              <span class="cs-label">Diagnosis</span>
-              <p>Tracking was browser-pixel only with weak advanced matching, giving an Event Match Quality of just 6.1 and heavy signal loss.</p>
-            </div>
-            <div class="case-step cs-fix">
-              <span class="cs-label">Fix</span>
-              <p>Deployed server-side Meta CAPI with full advanced matching and added Triple Whale for a blended, first-party view of performance.</p>
-            </div>
-            <div class="case-step cs-result">
-              <span class="cs-label">Result</span>
-              <p><strong>EMQ rose 6.1 → 9.2</strong>, recovering ~32% of previously lost attributed conversions.</p>
-            </div>
-          </div>
-        </div>
-
+<% }); %>
       </div>
+<% if (caseStudies.some(function(c) { return c.is_placeholder; })) { %>
       <p class="cases-note"><i class="fa-solid fa-circle-info"></i> Figures shown are representative placeholders — swap in your real client numbers before launch.</p>
+<% } %>
     </div>
   </section>
 

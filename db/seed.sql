@@ -126,3 +126,14 @@ INSERT INTO faq_items (category, question, answer, sort_order) VALUES
  'Directly — WhatsApp, email, or calls, with me as your one point of contact throughout. You approve a spec before I build, get a QA walkthrough when it''s done, and can reach me after launch — regardless of which specialist worked on which piece.', 3),
 ('Working Together', 'How is verification handled — how do I know it actually works?',
  'Nothing is "done" until it''s proven. Every event is validated in GA4 DebugView and Tag Assistant with real test transactions, and you get a QA walkthrough (often a short video) plus a verification report before handoff.', 4);
+
+-- Curated subset shown in the condensed FAQ section on the homepage,
+-- in the order it should display there (distinct from the full,
+-- categorized list on faq.html).
+UPDATE faq_items SET featured_order = 1 WHERE question = 'Do you do both development and tracking, or just one?';
+UPDATE faq_items SET featured_order = 2 WHERE question = 'Can you set up server-side tracking and Meta CAPI?';
+UPDATE faq_items SET featured_order = 3 WHERE question = 'Will my GA4 data survive iOS and consent changes?';
+UPDATE faq_items SET featured_order = 4 WHERE question = 'Do I keep ownership of all accounts and code?';
+UPDATE faq_items SET featured_order = 5 WHERE question = 'Which CRMs and automation tools do you work with?';
+UPDATE faq_items SET featured_order = 6 WHERE question = 'Is it really just you, or is there a team?';
+UPDATE faq_items SET featured_order = 7 WHERE question = 'How do we work together and communicate?';

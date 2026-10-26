@@ -21,6 +21,9 @@
   </section>
 
   <!-- ===== THREE TRACKS ===== -->
+  <!-- Summary cards loaded from the database (db/schema.sql + db/seed.sql, via -->
+  <!-- models/tracks.js). The detailed sections below (#dev/#tracking/#automation) -->
+  <!-- have bespoke copy not modeled in the tracks table, so they stay static. -->
   <section class="tracks section">
     <div class="container">
       <div class="section-head">
@@ -29,55 +32,23 @@
         <p>Each track stands on its own. Together, they're why the tracking never breaks at the handoff between dev and marketing.</p>
       </div>
       <div class="tracks-grid">
-
-        <div class="track-card tk-a">
+<% const trackClass = ['tk-a', 'tk-b', 'tk-c']; %>
+<% tracks.forEach(function(track, i) { %>
+        <div class="track-card <%= trackClass[i % 3] %>">
           <div class="track-head">
-            <div class="track-icon"><i class="fa-solid fa-code"></i></div>
-            <span class="track-letter">Track A</span>
+            <div class="track-icon"><i class="<%= track.icon %>"></i></div>
+            <span class="track-letter"><%= track.letter %></span>
           </div>
-          <h3>Website Development</h3>
-          <p>Fast, clean Shopify &amp; WordPress builds designed to convert — and built so tracking drops in without a fight.</p>
+          <h3><%- track.title %></h3>
+          <p><%- track.summary %></p>
           <ul class="track-list">
-            <li><i class="fa-solid fa-check"></i> Shopify theme dev &amp; customization</li>
-            <li><i class="fa-solid fa-check"></i> WordPress / WooCommerce builds</li>
-            <li><i class="fa-solid fa-check"></i> Landing pages &amp; UX design</li>
-            <li><i class="fa-solid fa-check"></i> Speed &amp; Core Web Vitals</li>
+<% track.features.forEach(function(feature) { %>
+            <li><i class="fa-solid fa-check"></i> <%- feature %></li>
+<% }); %>
           </ul>
-          <a href="#dev" class="service-link">See the detail <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#<%= track.anchor %>" class="service-link">See the detail <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-        <div class="track-card tk-b">
-          <div class="track-head">
-            <div class="track-icon"><i class="fa-solid fa-chart-line"></i></div>
-            <span class="track-letter">Track B</span>
-          </div>
-          <h3>Tracking &amp; Analytics</h3>
-          <p>The specialty. Pixel-perfect, deduplicated, server-side tracking that survives iOS and consent changes.</p>
-          <ul class="track-list">
-            <li><i class="fa-solid fa-check"></i> GA4 &amp; GTM setup</li>
-            <li><i class="fa-solid fa-check"></i> Meta &amp; TikTok pixel + CAPI</li>
-            <li><i class="fa-solid fa-check"></i> Server-side tracking (sGTM)</li>
-            <li><i class="fa-solid fa-check"></i> Offline &amp; ads conversion tracking</li>
-          </ul>
-          <a href="#tracking" class="service-link">See the detail <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="track-card tk-c">
-          <div class="track-head">
-            <div class="track-icon"><i class="fa-solid fa-robot"></i></div>
-            <span class="track-letter">Track C</span>
-          </div>
-          <h3>Automation &amp; Ads</h3>
-          <p>The connective tissue — CRM wiring, automation, and ad management that keeps data flowing to the right place.</p>
-          <ul class="track-list">
-            <li><i class="fa-solid fa-check"></i> Zapier, CallRail, Triple Whale</li>
-            <li><i class="fa-solid fa-check"></i> CRM setup: GHL, HubSpot, Zoho</li>
-            <li><i class="fa-solid fa-check"></i> Meta / TikTok / Google Ads</li>
-            <li><i class="fa-solid fa-check"></i> Automated reporting dashboards</li>
-          </ul>
-          <a href="#automation" class="service-link">See the detail <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
+<% }); %>
       </div>
     </div>
   </section>

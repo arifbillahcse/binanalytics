@@ -53,14 +53,15 @@ CREATE TABLE IF NOT EXISTS case_study_tools (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS faq_items (
-  id            INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  category      VARCHAR(60)   NOT NULL,   -- 'General' | 'Development' | 'Tracking' | 'Automation & Ads' | 'Working Together'
-  question      VARCHAR(300)  NOT NULL,
-  answer        TEXT          NOT NULL,   -- may contain inline <em>/<code> markup
-  sort_order    SMALLINT      NOT NULL DEFAULT 0,
-  is_published  TINYINT(1)    NOT NULL DEFAULT 1,
-  created_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  category        VARCHAR(60)   NOT NULL,   -- 'General' | 'Development' | 'Tracking' | 'Automation & Ads' | 'Working Together'
+  question        VARCHAR(300)  NOT NULL,
+  answer          TEXT          NOT NULL,   -- may contain inline <em>/<code> markup
+  sort_order      SMALLINT      NOT NULL DEFAULT 0,
+  featured_order  SMALLINT      NULL DEFAULT NULL,  -- NULL = not shown on homepage; set = homepage display order
+  is_published    TINYINT(1)    NOT NULL DEFAULT 1,
+  created_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS contact_submissions (
@@ -75,5 +76,6 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
 
 CREATE INDEX idx_case_studies_published_sort ON case_studies (is_published, sort_order);
 CREATE INDEX idx_faq_category_sort ON faq_items (category, sort_order);
+CREATE INDEX idx_faq_featured_order ON faq_items (featured_order);
 CREATE INDEX idx_tracks_published_sort ON tracks (is_published, sort_order);
 CREATE INDEX idx_contact_status_created ON contact_submissions (status, created_at);
