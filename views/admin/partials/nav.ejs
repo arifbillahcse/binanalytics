@@ -1,0 +1,14 @@
+  <aside class="admin-sidebar">
+    <div class="brand">Bin<span>Analytics</span> Admin</div>
+    <nav class="admin-nav">
+      <a href="/admin" class="<%= active === 'dashboard' ? 'active' : '' %>"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      <a href="/admin/case-studies" class="<%= active === 'case-studies' ? 'active' : '' %>"><i class="fa-solid fa-folder-open"></i> Case Studies</a>
+      <a href="/admin/faq" class="<%= active === 'faq' ? 'active' : '' %>"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+      <a href="/admin/tracks" class="<%= active === 'tracks' ? 'active' : '' %>"><i class="fa-solid fa-layer-group"></i> Tracks</a>
+      <a href="/admin/submissions" class="<%= active === 'submissions' ? 'active' : '' %>"><i class="fa-solid fa-envelope"></i> Submissions</a>
+      <a href="/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Site</a>
+    </nav>
+    <form action="/admin/logout" method="POST">
+      <button type="submit" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
+    </form>
+  </aside>

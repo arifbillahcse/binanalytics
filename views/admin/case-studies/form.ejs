@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+<%- include('../partials/nav') %>
+    <main class="admin-main">
+      <h1><%= item ? 'Edit Case Study' : 'New Case Study' %></h1>
+      <p class="subtitle">Keep the Problem → Diagnosis → Fix → Result format consistent — it's what makes these credible.</p>
+
+<% if (typeof error !== 'undefined' && error) { %>
+      <div class="admin-error"><%= error %></div>
+<% } %>
+
+      <form class="admin-form admin-card" method="POST" action="<%= item ? '/admin/case-studies/' + item.id : '/admin/case-studies' %>">
+        <div class="form-row-2">
+          <div class="field">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="<%= item ? item.title : '' %>" required />
+          </div>
+          <div class="field">
+            <label for="slug">Slug</label>
+            <input type="text" id="slug" name="slug" value="<%= item ? item.slug : '' %>" />
+            <p class="hint">Leave blank to auto-generate from the title.</p>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="field">
+            <label for="tag">Tag (e.g. "Shopify · DTC")</label>
+            <input type="text" id="tag" name="tag" value="<%= item ? item.tag : '' %>" required />
+          </div>
+          <div class="field">
+            <label for="tag_icon">Tag icon (Font Awesome class)</label>
+            <input type="text" id="tag_icon" name="tag_icon" value="<%= item ? item.tag_icon : 'fa-brands fa-shopify' %>" placeholder="fa-brands fa-shopify" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="problem">Problem</label>
+          <textarea id="problem" name="problem" rows="3" required><%= item ? item.problem : '' %></textarea>
+        </div>
+        <div class="field">
+          <label for="diagnosis">Diagnosis</label>
+          <textarea id="diagnosis" name="diagnosis" rows="3" required><%= item ? item.diagnosis : '' %></textarea>
+          <p class="hint">Inline HTML like &lt;code&gt;event_id&lt;/code&gt; is allowed and renders as-is.</p>
+        </div>
+        <div class="field">
+          <label for="fix">Fix</label>
+          <textarea id="fix" name="fix" rows="3" required><%= item ? item.fix : '' %></textarea>
+        </div>
+        <div class="field">
+          <label for="result">Result</label>
+          <textarea id="result" name="result" rows="2" required><%= item ? item.result : '' %></textarea>
+          <p class="hint">Wrap the headline figure in &lt;strong&gt;...&lt;/strong&gt; to match the site's styling.</p>
+        </div>
+
+        <div class="field">
+          <label for="tools">Tool chips (one per line)</label>
+          <textarea id="tools" name="tools" rows="3"><%= item ? item.tools.join('\n') : '' %></textarea>
+        </div>
+
+        <div class="form-row-2">
+          <div class="field">
+            <label for="sort_order">Display order</label>
+            <input type="number" id="sort_order" name="sort_order" value="<%= item ? item.sort_order : 0 %>" />
+          </div>
+          <div class="field">
+            <label>&nbsp;</label>
+            <div class="checkbox-row" style="margin-bottom:10px;">
+              <input type="checkbox" id="is_published" name="is_published" <%= (!item || item.is_published) ? 'checked' : '' %> />
+              <label for="is_published" style="margin:0;">Published (visible on the site)</label>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="is_placeholder" name="is_placeholder" <%= (item && item.is_placeholder) ? 'checked' : '' %> />
+              <label for="is_placeholder" style="margin:0;">Placeholder figures (shows the disclaimer note)</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="admin-btn admin-btn-primary"><%= item ? 'Save Changes' : 'Create Case Study' %></button>
+          <a href="/admin/case-studies" class="admin-btn admin-btn-outline">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

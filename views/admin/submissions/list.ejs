@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+<%- include('../partials/nav') %>
+    <main class="admin-main">
+      <h1>Contact Submissions</h1>
+      <p class="subtitle">Logged from the contact form's backend POST — the backup record behind the WhatsApp flow.</p>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Track</th>
+            <th>Message</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+<% if (submissions.length === 0) { %>
+          <tr><td colspan="6" style="color:var(--a-text-light);">No submissions yet.</td></tr>
+<% } %>
+<% submissions.forEach(function(s) { %>
+          <tr>
+            <td><%= new Date(s.created_at).toLocaleString() %></td>
+            <td><%= s.name %></td>
+            <td><a href="mailto:<%= s.email %>"><%= s.email %></a></td>
+            <td><%= s.track_requested || '—' %></td>
+            <td style="max-width:260px; white-space:pre-wrap;"><%= s.message || '—' %></td>
+            <td>
+              <form method="POST" action="/admin/submissions/<%= s.id %>/status" style="display:flex; align-items:center; gap:6px;">
+                <span class="badge-pill badge-status-<%= s.status %>"><%= s.status %></span>
+                <select name="status" onchange="this.form.submit()" style="font-size:0.78rem; padding:3px 6px; border-radius:4px; border:1px solid var(--a-border);">
+                  <option value="new" <%= s.status === 'new' ? 'selected' : '' %>>New</option>
+                  <option value="contacted" <%= s.status === 'contacted' ? 'selected' : '' %>>Contacted</option>
+                  <option value="closed" <%= s.status === 'closed' ? 'selected' : '' %>>Closed</option>
+                </select>
+              </form>
+            </td>
+          </tr>
+<% }); %>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

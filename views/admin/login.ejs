@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body class="admin-body">
+  <div class="login-shell">
+    <div class="login-card">
+      <h1>Admin Login</h1>
+      <p class="subtitle">BinAnalytics content management</p>
+
+<% if (error) { %>
+      <div class="admin-error"><%= error %></div>
+<% } %>
+
+      <form class="admin-form" method="POST" action="/admin/login">
+        <input type="hidden" name="next" value="<%= next %>" />
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autofocus />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit" class="admin-btn admin-btn-primary">Log In</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

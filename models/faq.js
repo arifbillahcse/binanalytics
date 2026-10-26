@@ -83,4 +83,73 @@ async function getFeaturedFaqItems() {
   return rows;
 }
 
-module.exports = { getFaqGroupedByCategory, getFeaturedFaqItems };
+module.exports = {
+  getFaqGroupedByCategory,
+  getFeaturedFaqItems,
+  CATEGORY_ORDER,
+  getAllFaqItemsAdmin,
+  getFaqItemByIdAdmin,
+  createFaqItem,
+  updateFaqItem,
+  deleteFaqItem,
+};
+
+// ===== Admin =====
+
+/** Returns every FAQ item (published or not), for the admin list. */
+async function getAllFaqItemsAdmin() {
+  const [rows] = await pool.query(
+    `SELECT id, category, question, answer, sort_order, featured_order, is_published
+     FROM faq_items
+     ORDER BY category ASC, sort_order ASC`
+  );
+  return rows;
+}
+
+async function getFaqItemByIdAdmin(id) {
+  const [rows] = await pool.query(
+    `SELECT id, category, question, answer, sort_order, featured_order, is_published
+     FROM faq_items
+     WHERE id = ?
+     LIMIT 1`,
+    [id]
+  );
+  return rows[0] || null;
+}
+
+async function createFaqItem(data) {
+  const [result] = await pool.query(
+    `INSERT INTO faq_items (category, question, answer, sort_order, featured_order, is_published)
+     VALUES (?, ?, ?, ?, ?, ?)`,
+    [
+      data.category,
+      data.question,
+      data.answer,
+      Number(data.sort_order) || 0,
+      data.featured_order ? Number(data.featured_order) : null,
+      data.is_published ? 1 : 0,
+    ]
+  );
+  return result.insertId;
+}
+
+async function updateFaqItem(id, data) {
+  await pool.query(
+    `UPDATE faq_items
+     SET category = ?, question = ?, answer = ?, sort_order = ?, featured_order = ?, is_published = ?
+     WHERE id = ?`,
+    [
+      data.category,
+      data.question,
+      data.answer,
+      Number(data.sort_order) || 0,
+      data.featured_order ? Number(data.featured_order) : null,
+      data.is_published ? 1 : 0,
+      id,
+    ]
+  );
+}
+
+async function deleteFaqItem(id) {
+  await pool.query(`DELETE FROM faq_items WHERE id = ?`, [id]);
+}

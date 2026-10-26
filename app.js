@@ -1,10 +1,13 @@
 require('dotenv').config();
 
 const path = require('path');
+const crypto = require('crypto');
 const express = require('express');
+const session = require('express-session');
 
 const pagesRouter = require('./routes/pages');
 const apiRouter = require('./routes/api');
+const adminRouter = require('./routes/admin');
 
 const app = express();
 
@@ -16,7 +19,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+if (!process.env.SESSION_SECRET && process.env.NODE_ENV === 'production') {
+  console.warn(
+    'WARNING: SESSION_SECRET is not set. Using a random value that changes on every ' +
+    'restart — every admin session will be logged out each time the app restarts. ' +
+    'Set SESSION_SECRET in .env (e.g. `openssl rand -hex 32`) to fix this.'
+  );
+}
+
+app.use(session({
+  // Default MemoryStore — fine for a single small Node process with one
+  // admin user. If this ever runs under a multi-process manager (PM2
+  // cluster mode, etc.) or needs sessions to survive a restart, swap in
+  // a real store (e.g. connect-mysql-session) instead.
+  secret: process.env.SESSION_SECRET || crypto.randomBytes(32).toString('hex'),
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production', // requires HTTPS in production
+    maxAge: 8 * 60 * 60 * 1000, // 8 hours
+  },
+}));
+
 app.use('/api', apiRouter);
+app.use('/admin', adminRouter);
 app.use('/', pagesRouter);
 
 // 404 fallback

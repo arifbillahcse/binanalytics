@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+<%- include('../partials/nav') %>
+    <main class="admin-main">
+      <div class="admin-toolbar">
+        <div>
+          <h1 style="margin-bottom:4px;">FAQ</h1>
+          <p class="subtitle" style="margin-bottom:0;">Shown on /faq.html (full, categorized) and the homepage (featured subset).</p>
+        </div>
+        <a href="/admin/faq/new" class="admin-btn admin-btn-primary"><i class="fa-solid fa-plus"></i> New FAQ Item</a>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Category</th>
+            <th>Featured</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+<% if (items.length === 0) { %>
+          <tr><td colspan="5" style="color:var(--a-text-light);">No FAQ items yet.</td></tr>
+<% } %>
+<% items.forEach(function(it) { %>
+          <tr>
+            <td><%= it.question %></td>
+            <td><%= it.category %></td>
+            <td><%= it.featured_order ? '#' + it.featured_order + ' on homepage' : '—' %></td>
+            <td><span class="badge-pill <%= it.is_published ? 'badge-published' : 'badge-draft' %>"><%= it.is_published ? 'Published' : 'Hidden' %></span></td>
+            <td class="actions">
+              <a href="/admin/faq/<%= it.id %>/edit" class="admin-btn admin-btn-outline admin-btn-sm">Edit</a>
+              <form method="POST" action="/admin/faq/<%= it.id %>/delete" onsubmit="return confirm('Delete this FAQ item?');" style="display:inline;">
+                <button type="submit" class="admin-btn admin-btn-danger admin-btn-sm">Delete</button>
+              </form>
+            </td>
+          </tr>
+<% }); %>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+<%- include('partials/nav') %>
+    <main class="admin-main">
+      <h1>Dashboard</h1>
+      <p class="subtitle">Content overview at a glance.</p>
+
+      <div class="admin-grid">
+        <div class="admin-stat">
+          <strong><%= counts.caseStudies %></strong>
+          <span>Case Studies</span>
+        </div>
+        <div class="admin-stat">
+          <strong><%= counts.faqItems %></strong>
+          <span>FAQ Items</span>
+        </div>
+        <div class="admin-stat">
+          <strong><%= counts.tracks %></strong>
+          <span>Service Tracks</span>
+        </div>
+        <div class="admin-stat">
+          <strong><%= counts.newSubmissions %></strong>
+          <span>New Contact Submissions</span>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 style="margin-top:0;">Quick links</h3>
+        <p style="color:var(--a-text-light); font-size:0.88rem;">
+          <a href="/admin/case-studies">Manage case studies</a> ·
+          <a href="/admin/faq">Manage FAQ</a> ·
+          <a href="/admin/tracks">Edit service tracks</a> ·
+          <a href="/admin/submissions">View submissions (<%= counts.totalSubmissions %> total)</a>
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

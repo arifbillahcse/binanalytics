@@ -8,15 +8,18 @@
     "start": "node app.js",
     "dev": "node --watch app.js",
     "db:setup": "node db/run-sql.js db/schema.sql",
-    "db:seed": "node db/run-sql.js db/seed.sql"
+    "db:seed": "node db/run-sql.js db/seed.sql",
+    "admin:hash": "node scripts/hash-password.js"
   },
   "engines": {
     "node": ">=16.0.0"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "mysql2": "^3.11.0",
     "nodemailer": "^6.9.14"
   }

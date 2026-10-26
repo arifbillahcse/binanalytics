@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+<%- include('../partials/nav') %>
+    <main class="admin-main">
+      <h1>Service Tracks</h1>
+      <p class="subtitle">The 3 tracks are fixed by design — edit their copy, but they can't be added to or deleted here.</p>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Letter</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Order</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+<% tracks.forEach(function(t) { %>
+          <tr>
+            <td><%= t.letter %></td>
+            <td><%- t.title %></td>
+            <td><span class="badge-pill <%= t.is_published ? 'badge-published' : 'badge-draft' %>"><%= t.is_published ? 'Published' : 'Hidden' %></span></td>
+            <td><%= t.sort_order %></td>
+            <td class="actions">
+              <a href="/admin/tracks/<%= t.id %>/edit" class="admin-btn admin-btn-outline admin-btn-sm">Edit</a>
+            </td>
+          </tr>
+<% }); %>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

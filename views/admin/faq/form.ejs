@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+<%- include('../partials/nav') %>
+    <main class="admin-main">
+      <h1><%= item ? 'Edit FAQ Item' : 'New FAQ Item' %></h1>
+      <p class="subtitle">Category controls which section of /faq.html it appears in.</p>
+
+<% if (typeof error !== 'undefined' && error) { %>
+      <div class="admin-error"><%= error %></div>
+<% } %>
+
+      <form class="admin-form admin-card" method="POST" action="<%= item ? '/admin/faq/' + item.id : '/admin/faq' %>">
+        <div class="form-row-2">
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+<% categories.forEach(function(cat) { %>
+              <option value="<%= cat %>" <%= (item && item.category === cat) ? 'selected' : '' %>><%= cat %></option>
+<% }); %>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sort_order">Display order (within category)</label>
+            <input type="number" id="sort_order" name="sort_order" value="<%= item ? item.sort_order : 0 %>" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="question">Question</label>
+          <input type="text" id="question" name="question" value="<%= item ? item.question : '' %>" required />
+        </div>
+        <div class="field">
+          <label for="answer">Answer</label>
+          <textarea id="answer" name="answer" rows="4" required><%= item ? item.answer : '' %></textarea>
+          <p class="hint">Inline HTML like &lt;em&gt;/&lt;code&gt; is allowed and renders as-is.</p>
+        </div>
+
+        <div class="form-row-2">
+          <div class="field">
+            <label for="featured_order">Homepage featured order</label>
+            <input type="number" id="featured_order" name="featured_order" value="<%= item && item.featured_order ? item.featured_order : '' %>" />
+            <p class="hint">Leave blank to keep this off the homepage's condensed FAQ. A number controls its position there.</p>
+          </div>
+          <div class="field">
+            <label>&nbsp;</label>
+            <div class="checkbox-row">
+              <input type="checkbox" id="is_published" name="is_published" <%= (!item || item.is_published) ? 'checked' : '' %> />
+              <label for="is_published" style="margin:0;">Published (visible on the site)</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="admin-btn admin-btn-primary"><%= item ? 'Save Changes' : 'Create FAQ Item' %></button>
+          <a href="/admin/faq" class="admin-btn admin-btn-outline">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

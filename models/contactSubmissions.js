@@ -13,4 +13,24 @@ async function createSubmission({ name, email, trackRequested, message }) {
   return result.insertId;
 }
 
-module.exports = { createSubmission };
+module.exports = { createSubmission, getAllSubmissionsAdmin, updateSubmissionStatus };
+
+// ===== Admin =====
+
+const VALID_STATUSES = ['new', 'contacted', 'closed'];
+
+async function getAllSubmissionsAdmin() {
+  const [rows] = await pool.query(
+    `SELECT id, name, email, track_requested, message, status, created_at
+     FROM contact_submissions
+     ORDER BY created_at DESC`
+  );
+  return rows;
+}
+
+async function updateSubmissionStatus(id, status) {
+  if (!VALID_STATUSES.includes(status)) {
+    throw new Error(`Invalid status: ${status}`);
+  }
+  await pool.query(`UPDATE contact_submissions SET status = ? WHERE id = ?`, [status, id]);
+}
