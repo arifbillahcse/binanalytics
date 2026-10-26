@@ -8,6 +8,7 @@ const session = require('express-session');
 const pagesRouter = require('./routes/pages');
 const apiRouter = require('./routes/api');
 const adminRouter = require('./routes/admin');
+const pool = require('./config/db');
 
 const app = express();
 
@@ -44,6 +45,19 @@ app.use(session({
 
 app.use('/api', apiRouter);
 app.use('/admin', adminRouter);
+
+// Health check — confirms the app is up AND the DB is reachable.
+// Use this right after deploying to catch a misconfigured .env fast,
+// and optionally point an uptime monitor at it.
+app.get('/healthz', async (req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    res.status(200).json({ ok: true, db: 'connected', uptime: process.uptime() });
+  } catch (err) {
+    res.status(503).json({ ok: false, db: 'unreachable', error: err.message });
+  }
+});
+
 app.use('/', pagesRouter);
 
 // 404 fallback
