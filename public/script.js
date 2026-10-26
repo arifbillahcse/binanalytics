@@ -87,14 +87,15 @@ window.addEventListener('load', () => {
   }, 2500);
 });
 
-// Contact form → WhatsApp
+// Contact form → WhatsApp + backend (email/DB log, best-effort)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
-  const name    = this.querySelector('input[type="text"]').value.trim();
-  const email   = this.querySelector('input[type="email"]').value.trim();
-  const service = this.querySelector('select').value;
-  const message = this.querySelector('textarea').value.trim();
+  const name    = this.querySelector('input[name="name"]').value.trim();
+  const email   = this.querySelector('input[name="email"]').value.trim();
+  const service = this.querySelector('select[name="track"]').value;
+  const message = this.querySelector('textarea[name="message"]').value.trim();
+  const company = this.querySelector('input[name="company"]').value; // honeypot
 
   const text = [
     `👋 Hello BinAnalytics!`,
@@ -106,6 +107,14 @@ if (contactForm) contactForm.addEventListener('submit', function(e) {
   ].filter(Boolean).join('\n');
 
   window.open(`https://wa.me/8801854626927?text=${encodeURIComponent(text)}`, '_blank');
+
+  // Best-effort backend log/email — never block or delay the WhatsApp flow on this.
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, track: service, message, company }),
+    keepalive: true,
+  }).catch(() => { /* silent — WhatsApp is the primary path */ });
 
   const btn = this.querySelector('button[type="submit"]');
   btn.innerHTML = '<i class="fa-solid fa-check"></i> Opening WhatsApp...';

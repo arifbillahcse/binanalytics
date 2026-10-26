@@ -52,19 +52,21 @@
       </div>
       <div class="contact-form-wrap">
         <form class="contact-form" id="contactForm">
+          <!-- Honeypot: real users never see or fill this; bots that fill every field will. -->
+          <input type="text" name="company" id="hpCompany" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-row">
             <div class="form-group">
               <label>Your Name</label>
-              <input type="text" placeholder="John Doe" required />
+              <input type="text" name="name" placeholder="John Doe" required />
             </div>
             <div class="form-group">
               <label>Email Address</label>
-              <input type="email" placeholder="john@example.com" required />
+              <input type="email" name="email" placeholder="john@example.com" required />
             </div>
           </div>
           <div class="form-group">
             <label>What do you need?</label>
-            <select>
+            <select name="track">
               <option value="">Select a track...</option>
               <option>Website Development (Shopify / WordPress)</option>
               <option>Tracking &amp; Analytics (GA4 / Server-side / CAPI)</option>
@@ -74,7 +76,7 @@
           </div>
           <div class="form-group">
             <label>Your Message</label>
-            <textarea rows="4" placeholder="Tell me what's broken or what you're building..."></textarea>
+            <textarea name="message" rows="4" placeholder="Tell me what's broken or what you're building..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-full">Send via WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
           <p class="form-note"><i class="fa-solid fa-lock"></i> Your message goes straight to my WhatsApp.</p>
