@@ -39,6 +39,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production', // requires HTTPS in production
+    sameSite: 'lax', // defense-in-depth against CSRF alongside the explicit token check in middleware/csrf.js
     maxAge: 8 * 60 * 60 * 1000, // 8 hours
   },
 }));

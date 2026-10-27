@@ -7,14 +7,15 @@
   <div class="admin-shell">
 <%- include('../partials/nav') %>
     <main class="admin-main">
-      <h1><%= item ? 'Edit FAQ Item' : 'New FAQ Item' %></h1>
+      <h1><%= (item && item.id) ? 'Edit FAQ Item' : 'New FAQ Item' %></h1>
       <p class="subtitle">Category controls which section of /faq.html it appears in.</p>
 
 <% if (typeof error !== 'undefined' && error) { %>
       <div class="admin-error"><%= error %></div>
 <% } %>
 
-      <form class="admin-form admin-card" method="POST" action="<%= item ? '/admin/faq/' + item.id : '/admin/faq' %>">
+      <form class="admin-form admin-card" method="POST" action="<%= (item && item.id) ? '/admin/faq/' + item.id : '/admin/faq' %>">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
         <div class="form-row-2">
           <div class="field">
             <label for="category">Category</label>
@@ -56,7 +57,7 @@
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="admin-btn admin-btn-primary"><%= item ? 'Save Changes' : 'Create FAQ Item' %></button>
+          <button type="submit" class="admin-btn admin-btn-primary"><%= (item && item.id) ? 'Save Changes' : 'Create FAQ Item' %></button>
           <a href="/admin/faq" class="admin-btn admin-btn-outline">Cancel</a>
         </div>
       </form>

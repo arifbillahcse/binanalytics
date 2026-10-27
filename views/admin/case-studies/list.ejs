@@ -38,6 +38,7 @@
             <td class="actions">
               <a href="/admin/case-studies/<%= c.id %>/edit" class="admin-btn admin-btn-outline admin-btn-sm">Edit</a>
               <form method="POST" action="/admin/case-studies/<%= c.id %>/delete" onsubmit="return confirm('Delete this case study? This cannot be undone.');" style="display:inline;">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                 <button type="submit" class="admin-btn admin-btn-danger admin-btn-sm">Delete</button>
               </form>
             </td>

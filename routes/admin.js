@@ -1,12 +1,26 @@
 const express = require('express');
+const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 const requireAdmin = require('../middleware/requireAdmin');
+const { attachToken, verifyToken } = require('../middleware/csrf');
+const { createRateLimiter } = require('../lib/rateLimiter');
+const { checkLength } = require('../lib/validate');
 const caseStudiesModel = require('../models/caseStudies');
 const faqModel = require('../models/faq');
 const tracksModel = require('../models/tracks');
 const submissionsModel = require('../models/contactSubmissions');
+
+// CSRF applies to the whole router, including login — a token minted on
+// the GET /admin/login page is what the POST there is checked against.
+router.use(attachToken);
+router.use(verifyToken);
+
+// Slow down password-guessing: 10 attempts per IP per 15 minutes.
+// bcrypt.compare() itself is already slow per-attempt; this caps the
+// number of attempts on top of that.
+const loginLimiter = createRateLimiter({ windowMs: 15 * 60 * 1000, max: 10 });
 
 // ===== AUTH (unprotected) =====
 
@@ -23,6 +37,14 @@ router.post('/login', async (req, res, next) => {
   try {
     const { username, password } = req.body || {};
     const nextUrl = (req.body && req.body.next) || '/admin';
+
+    if (loginLimiter.isLimited(req.ip)) {
+      return res.status(429).render('admin/login', {
+        title: 'Admin Login – BinAnalytics',
+        error: 'Too many login attempts. Please wait a few minutes and try again.',
+        next: nextUrl,
+      });
+    }
 
     const expectedUser = process.env.ADMIN_USERNAME;
     const expectedHash = process.env.ADMIN_PASSWORD_HASH;
@@ -48,8 +70,16 @@ router.post('/login', async (req, res, next) => {
       });
     }
 
-    req.session.isAdmin = true;
-    res.redirect(nextUrl.startsWith('/admin') ? nextUrl : '/admin');
+    // Regenerate the session on login so a token an attacker may have
+    // fixed/known before authentication can't be reused afterward
+    // (session fixation). This issues a fresh session id and, since
+    // regenerate() clears the session, also mints a fresh CSRF token.
+    req.session.regenerate((err) => {
+      if (err) return next(err);
+      req.session.isAdmin = true;
+      req.session.csrfToken = crypto.randomBytes(32).toString('hex');
+      res.redirect(nextUrl.startsWith('/admin') ? nextUrl : '/admin');
+    });
   } catch (err) {
     next(err);
   }
@@ -110,6 +140,20 @@ router.get('/case-studies/new', (req, res) => {
 router.post('/case-studies', async (req, res, next) => {
   try {
     const data = parseCaseStudyBody(req.body);
+    const errors = checkLength([
+      { name: 'Title', value: data.title, max: 200 },
+      { name: 'Slug', value: data.slug, max: 140 },
+      { name: 'Tag', value: data.tag, max: 80 },
+      { name: 'Tag icon', value: data.tag_icon, max: 60 },
+    ]);
+    if (errors.length) {
+      return res.status(400).render('admin/case-studies/form', {
+        title: 'New Case Study – Admin',
+        active: 'case-studies',
+        item: { id: null, ...data },
+        error: errors.join(' '),
+      });
+    }
     await caseStudiesModel.createCaseStudy(data);
     res.redirect('/admin/case-studies');
   } catch (err) {
@@ -130,6 +174,20 @@ router.get('/case-studies/:id/edit', async (req, res, next) => {
 router.post('/case-studies/:id', async (req, res, next) => {
   try {
     const data = parseCaseStudyBody(req.body);
+    const errors = checkLength([
+      { name: 'Title', value: data.title, max: 200 },
+      { name: 'Slug', value: data.slug, max: 140 },
+      { name: 'Tag', value: data.tag, max: 80 },
+      { name: 'Tag icon', value: data.tag_icon, max: 60 },
+    ]);
+    if (errors.length) {
+      return res.status(400).render('admin/case-studies/form', {
+        title: 'Edit Case Study – Admin',
+        active: 'case-studies',
+        item: { id: req.params.id, ...data },
+        error: errors.join(' '),
+      });
+    }
     await caseStudiesModel.updateCaseStudy(req.params.id, data);
     res.redirect('/admin/case-studies');
   } catch (err) {
@@ -186,7 +244,21 @@ router.get('/faq/new', (req, res) => {
 
 router.post('/faq', async (req, res, next) => {
   try {
-    await faqModel.createFaqItem(parseFaqBody(req.body));
+    const data = parseFaqBody(req.body);
+    const errors = checkLength([
+      { name: 'Category', value: data.category, max: 60 },
+      { name: 'Question', value: data.question, max: 300 },
+    ]);
+    if (errors.length) {
+      return res.status(400).render('admin/faq/form', {
+        title: 'New FAQ Item – Admin',
+        active: 'faq',
+        item: { id: null, ...data },
+        categories: faqModel.CATEGORY_ORDER,
+        error: errors.join(' '),
+      });
+    }
+    await faqModel.createFaqItem(data);
     res.redirect('/admin/faq');
   } catch (err) {
     next(err);
@@ -211,7 +283,21 @@ router.get('/faq/:id/edit', async (req, res, next) => {
 
 router.post('/faq/:id', async (req, res, next) => {
   try {
-    await faqModel.updateFaqItem(req.params.id, parseFaqBody(req.body));
+    const data = parseFaqBody(req.body);
+    const errors = checkLength([
+      { name: 'Category', value: data.category, max: 60 },
+      { name: 'Question', value: data.question, max: 300 },
+    ]);
+    if (errors.length) {
+      return res.status(400).render('admin/faq/form', {
+        title: 'Edit FAQ Item – Admin',
+        active: 'faq',
+        item: { id: req.params.id, ...data },
+        categories: faqModel.CATEGORY_ORDER,
+        error: errors.join(' '),
+      });
+    }
+    await faqModel.updateFaqItem(req.params.id, data);
     res.redirect('/admin/faq');
   } catch (err) {
     next(err);
@@ -272,6 +358,21 @@ router.post('/tracks/:id', async (req, res, next) => {
       is_published: !!req.body.is_published,
       features: (req.body.features || '').split('\n'),
     };
+    const errors = checkLength([
+      { name: 'Letter', value: data.letter, max: 10 },
+      { name: 'Icon', value: data.icon, max: 60 },
+      { name: 'Title', value: data.title, max: 120 },
+      { name: 'Owner note', value: data.owner_note, max: 160 },
+      { name: 'Anchor', value: data.anchor, max: 40 },
+    ]);
+    if (errors.length) {
+      return res.status(400).render('admin/tracks/form', {
+        title: 'Edit Track – Admin',
+        active: 'tracks',
+        item: { id: req.params.id, ...data },
+        error: errors.join(' '),
+      });
+    }
     await tracksModel.updateTrack(req.params.id, data);
     res.redirect('/admin/tracks');
   } catch (err) {

@@ -3,24 +3,12 @@ const router = express.Router();
 
 const { createSubmission } = require('../models/contactSubmissions');
 const { sendContactNotification } = require('../config/mailer');
+const { createRateLimiter } = require('../lib/rateLimiter');
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Simple in-memory rate limit: 5 submissions per IP per 10 minutes.
-// Resets on process restart and isn't shared across multiple instances —
-// fine for a single small Node process; swap for a real store (Redis) if
-// this ever runs behind a load balancer.
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
-const RATE_LIMIT_MAX = 5;
-const hitsByIp = new Map();
-
-function isRateLimited(ip) {
-  const now = Date.now();
-  const hits = (hitsByIp.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
-  hits.push(now);
-  hitsByIp.set(ip, hits);
-  return hits.length > RATE_LIMIT_MAX;
-}
+// 5 submissions per IP per 10 minutes.
+const contactLimiter = createRateLimiter({ windowMs: 10 * 60 * 1000, max: 5 });
 
 router.post('/contact', async (req, res, next) => {
   try {
@@ -32,7 +20,7 @@ router.post('/contact', async (req, res, next) => {
       return res.json({ ok: true });
     }
 
-    if (isRateLimited(req.ip)) {
+    if (contactLimiter.isLimited(req.ip)) {
       return res.status(429).json({ ok: false, error: 'Too many submissions. Please try again later.' });
     }
 

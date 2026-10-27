@@ -59,36 +59,50 @@ async function getTrackByIdAdmin(id) {
   return withFeatures;
 }
 
-async function replaceTrackFeatures(trackId, features) {
-  await pool.query(`DELETE FROM track_features WHERE track_id = ?`, [trackId]);
+async function replaceTrackFeatures(conn, trackId, features) {
+  await conn.query(`DELETE FROM track_features WHERE track_id = ?`, [trackId]);
   const clean = (features || []).map((f) => f.trim()).filter(Boolean);
   if (clean.length === 0) return;
   const values = clean.map((feature, i) => [trackId, feature, i + 1]);
-  await pool.query(
+  await conn.query(
     `INSERT INTO track_features (track_id, feature, sort_order) VALUES ?`,
     [values]
   );
 }
 
+/**
+ * Updates the track row and replaces its feature rows as a single
+ * transaction — either both succeed or neither does.
+ */
 async function updateTrack(id, data) {
-  await pool.query(
-    `UPDATE tracks
-     SET letter = ?, icon = ?, title = ?, summary = ?, owner_note = ?,
-         anchor = ?, sort_order = ?, is_published = ?
-     WHERE id = ?`,
-    [
-      data.letter,
-      data.icon,
-      data.title,
-      data.summary,
-      data.owner_note,
-      data.anchor,
-      Number(data.sort_order) || 0,
-      data.is_published ? 1 : 0,
-      id,
-    ]
-  );
-  await replaceTrackFeatures(id, data.features);
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+    await conn.query(
+      `UPDATE tracks
+       SET letter = ?, icon = ?, title = ?, summary = ?, owner_note = ?,
+           anchor = ?, sort_order = ?, is_published = ?
+       WHERE id = ?`,
+      [
+        data.letter,
+        data.icon,
+        data.title,
+        data.summary,
+        data.owner_note,
+        data.anchor,
+        Number(data.sort_order) || 0,
+        data.is_published ? 1 : 0,
+        id,
+      ]
+    );
+    await replaceTrackFeatures(conn, id, data.features);
+    await conn.commit();
+  } catch (err) {
+    await conn.rollback();
+    throw err;
+  } finally {
+    conn.release();
+  }
 }
 
 module.exports = {

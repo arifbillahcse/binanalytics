@@ -81,64 +81,89 @@ async function getCaseStudyByIdAdmin(id) {
   return withTools;
 }
 
-async function replaceCaseStudyTools(caseStudyId, tools) {
-  await pool.query(`DELETE FROM case_study_tools WHERE case_study_id = ?`, [caseStudyId]);
+async function replaceCaseStudyTools(conn, caseStudyId, tools) {
+  await conn.query(`DELETE FROM case_study_tools WHERE case_study_id = ?`, [caseStudyId]);
   const clean = (tools || []).map((t) => t.trim()).filter(Boolean);
   if (clean.length === 0) return;
   const values = clean.map((tool, i) => [caseStudyId, tool, i + 1]);
-  await pool.query(
+  await conn.query(
     `INSERT INTO case_study_tools (case_study_id, tool, sort_order) VALUES ?`,
     [values]
   );
 }
 
+/**
+ * Creates the case study row and its tool rows as a single transaction —
+ * either both succeed or neither does, instead of risking a case study
+ * with no tools (or vice versa) if the process dies mid-write.
+ */
 async function createCaseStudy(data) {
   const slug = data.slug ? slugify(data.slug) : slugify(data.title);
-  const [result] = await pool.query(
-    `INSERT INTO case_studies
-       (slug, tag, tag_icon, title, problem, diagnosis, fix, result, is_placeholder, sort_order, is_published)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [
-      slug,
-      data.tag,
-      data.tag_icon,
-      data.title,
-      data.problem,
-      data.diagnosis,
-      data.fix,
-      data.result,
-      data.is_placeholder ? 1 : 0,
-      Number(data.sort_order) || 0,
-      data.is_published ? 1 : 0,
-    ]
-  );
-  await replaceCaseStudyTools(result.insertId, data.tools);
-  return result.insertId;
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+    const [result] = await conn.query(
+      `INSERT INTO case_studies
+         (slug, tag, tag_icon, title, problem, diagnosis, fix, result, is_placeholder, sort_order, is_published)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        slug,
+        data.tag,
+        data.tag_icon,
+        data.title,
+        data.problem,
+        data.diagnosis,
+        data.fix,
+        data.result,
+        data.is_placeholder ? 1 : 0,
+        Number(data.sort_order) || 0,
+        data.is_published ? 1 : 0,
+      ]
+    );
+    await replaceCaseStudyTools(conn, result.insertId, data.tools);
+    await conn.commit();
+    return result.insertId;
+  } catch (err) {
+    await conn.rollback();
+    throw err;
+  } finally {
+    conn.release();
+  }
 }
 
 async function updateCaseStudy(id, data) {
   const slug = data.slug ? slugify(data.slug) : slugify(data.title);
-  await pool.query(
-    `UPDATE case_studies
-     SET slug = ?, tag = ?, tag_icon = ?, title = ?, problem = ?, diagnosis = ?,
-         fix = ?, result = ?, is_placeholder = ?, sort_order = ?, is_published = ?
-     WHERE id = ?`,
-    [
-      slug,
-      data.tag,
-      data.tag_icon,
-      data.title,
-      data.problem,
-      data.diagnosis,
-      data.fix,
-      data.result,
-      data.is_placeholder ? 1 : 0,
-      Number(data.sort_order) || 0,
-      data.is_published ? 1 : 0,
-      id,
-    ]
-  );
-  await replaceCaseStudyTools(id, data.tools);
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+    await conn.query(
+      `UPDATE case_studies
+       SET slug = ?, tag = ?, tag_icon = ?, title = ?, problem = ?, diagnosis = ?,
+           fix = ?, result = ?, is_placeholder = ?, sort_order = ?, is_published = ?
+       WHERE id = ?`,
+      [
+        slug,
+        data.tag,
+        data.tag_icon,
+        data.title,
+        data.problem,
+        data.diagnosis,
+        data.fix,
+        data.result,
+        data.is_placeholder ? 1 : 0,
+        Number(data.sort_order) || 0,
+        data.is_published ? 1 : 0,
+        id,
+      ]
+    );
+    await replaceCaseStudyTools(conn, id, data.tools);
+    await conn.commit();
+  } catch (err) {
+    await conn.rollback();
+    throw err;
+  } finally {
+    conn.release();
+  }
 }
 
 async function deleteCaseStudy(id) {

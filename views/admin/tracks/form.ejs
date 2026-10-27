@@ -15,6 +15,7 @@
 <% } %>
 
       <form class="admin-form admin-card" method="POST" action="/admin/tracks/<%= item.id %>">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
         <div class="form-row-2">
           <div class="field">
             <label for="letter">Letter label (e.g. "Track A")</label>

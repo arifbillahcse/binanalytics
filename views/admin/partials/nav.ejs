@@ -9,6 +9,7 @@
       <a href="/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Site</a>
     </nav>
     <form action="/admin/logout" method="POST">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <button type="submit" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
     </form>
   </aside>
